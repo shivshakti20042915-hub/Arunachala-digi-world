@@ -3,14 +3,21 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Arunachala Digi World — Smart Digital Solutions</title>
+  <title>Arunachala Digi World — Premium Digital Marketing Agency</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- GSAP loaded here so it works on file://, localhost, and live server -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page fade — class-based, prevents blank flash on file:// */
+    html.page-loading body { opacity: 0; }
+    html.page-loaded  body { opacity: 1; transition: opacity 0.45s ease; }
+    /* ht-word hidden until GSAP or CSS fallback reveals them */
+    .ht-word { opacity: 0; }
+  </style>
 </head>
 <body>
 
@@ -18,7 +25,7 @@
   <div class="cur-dot" id="curDot"></div>
   <div class="cur-ring" id="curRing"></div>
 
-  <!-- ══════════ NAVBAR ══════════ -->
+  <!-- ═══════════ NAVBAR ═══════════ -->
   <nav class="navbar" id="navbar">
     <div class="nav-wrap">
       <a href="index.html" class="nav-logo">
@@ -45,109 +52,90 @@
     </div>
   </nav>
 
-  <!-- ══════════ HERO ══════════ -->
+  <!-- ═══════════ HERO ═══════════ -->
   <section class="hero">
-    <div class="hero-bg-mesh"></div>
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
-    <div class="blob b3"></div>
-    <div class="container hero-layout">
-      <!-- Copy -->
-      <div class="hero-copy">
-        <span class="badge ai0">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-grid-bg"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="badge hero-eyebrow ai0">
           <i class="badge-pulse"></i> Digital Growth Partner for Businesses
-        </span>
-        <h1 class="h1 ai1">
-          Empowering<br>
-          <span class="g-text">Businesses</span><br>
-          With Digital Magic
+        </div>
+        <h1 class="h1 hero-title">
+          <span class="ht-line">
+            <span class="ht-word">We</span>
+            <span class="ht-word">Build</span>
+          </span>
+          <span class="ht-line">
+            <span class="ht-word g-text">Digital</span>
+            <span class="ht-word g-text">Empires</span>
+          </span>
+          <span class="ht-line">
+            <span class="ht-word">That</span>
+            <span class="ht-word">Scale</span>
+          </span>
         </h1>
-        <p class="hero-p ai2">
-          Arunachala Digi World helps businesses grow using websites, automation, branding, SEO, and cutting-edge AI solutions — all at affordable prices.
+        <p class="hero-sub ai2">
+          Arunachala Digi World transforms businesses with world-class websites, intelligent automation, stunning branding, SEO mastery, and cutting-edge AI — all at prices that make sense.
         </p>
         <div class="hero-btns ai3">
-          <a href="services.html" class="btn-blue">Explore Services →</a>
-          <a href="contact.html" class="btn-outline-dark">Contact Us</a>
+          <a href="services.html" class="btn-primary">Explore Services <span>→</span></a>
+          <a href="contact.html" class="btn-outline">Free Consultation</a>
         </div>
         <div class="hero-stats ai4">
-          <div class="hstat"><b>50+</b><small>Clients Served</small></div>
+          <div class="hstat"><b>3+</b><small>Clients Served</small></div>
           <div class="hstat-sep"></div>
-          <div class="hstat"><b>9+</b><small>Services</small></div>
+          <div class="hstat"><b>20+</b><small>Services</small></div>
           <div class="hstat-sep"></div>
           <div class="hstat"><b>100%</b><small>Satisfaction</small></div>
         </div>
       </div>
+    </div>
 
-      <!-- Floating Form -->
-      <div class="hero-form-col ai5">
-        <div class="form-float">
-          <div class="form-float-hd">
-            <div class="win-dots">
-              <span class="wd r"></span><span class="wd y"></span><span class="wd g"></span>
-            </div>
-            <span class="form-float-title">Free Consultation</span>
-          </div>
-          <form id="homeForm">
-            <div class="fg-row">
-              <div class="fg">
-                <label>Full Name</label>
-                <input type="text" name="name" placeholder="Your name" required>
-              </div>
-              <div class="fg">
-                <label>Mobile</label>
-                <input type="tel" name="mobile" placeholder="+91 XXXXX XXXXX" required>
-              </div>
-            </div>
-            <div class="fg">
-              <label>Email</label>
-              <input type="email" name="email" placeholder="you@email.com" required>
-            </div>
-            <div class="fg">
-              <label>Brand Name</label>
-              <input type="text" name="brand" placeholder="Your company / brand">
-            </div>
-            <div class="fg">
-              <label>Services Required</label>
-              <div class="chips">
-                <label class="chip"><input type="checkbox" name="services" value="Website Creation"><span>🌐 Website</span></label>
-                <label class="chip"><input type="checkbox" name="services" value="WhatsApp Automation"><span>💬 WhatsApp</span></label>
-                <label class="chip"><input type="checkbox" name="services" value="Instagram Automation"><span>📸 Instagram</span></label>
-                <label class="chip"><input type="checkbox" name="services" value="Email Automation"><span>📧 Email</span></label>
-                <label class="chip"><input type="checkbox" name="services" value="SEO Optimization"><span>📈 SEO</span></label>
-                <label class="chip"><input type="checkbox" name="services" value="Poster Design"><span>🎨 Poster</span></label>
-                <label class="chip"><input type="checkbox" name="services" value="Logo Design"><span>🎯 Logo</span></label>
-                <label class="chip"><input type="checkbox" name="services" value="Visiting Card"><span>💼 Card</span></label>
-                <label class="chip"><input type="checkbox" name="services" value="AI/ML Projects"><span>🤖 AI/ML</span></label>
-              </div>
-            </div>
-            <div class="fg">
-              <label>Address</label>
-              <textarea name="address" rows="2" placeholder="Your city / address"></textarea>
-            </div>
-            <button type="submit" class="btn-submit" id="homeBtn">Submit Inquiry ✦</button>
-          </form>
-          <div class="success-box" id="homeSuccess" style="display:none">
-            <div class="s-icon">🎉</div>
-            <h4>Inquiry Received!</h4>
-            <p>We'll get back to you within 24 hours.</p>
-          </div>
-        </div>
+    <!-- Marquee ticker -->
+    <div class="ticker-wrap">
+      <div class="ticker-track" id="tickerTrack">
+        <span class="ticker-item"><span class="ticker-dot"></span> Website Development</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> WhatsApp Automation</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> SEO Optimization</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> Logo &amp; Branding</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> AI / ML Projects</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> Instagram Automation</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> Email Marketing</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> E-Commerce Solutions</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> Digital Strategy</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> 3D Designs</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> Poster Making</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> Video Editing</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> AI Videos</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> Domain support</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> Hosting</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> Meta Ads</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> Social media handling</span>
+        <span class="ticker-item"><span class="ticker-dot"></span> Visting cards etc</span>
       </div>
     </div>
+
     <div class="scroll-cue"><span>Scroll</span><div class="sc-line"></div></div>
   </section>
 
-  <!-- ══════════ ABOUT ══════════ -->
-  <section class="section bg-white">
+  <!-- ═══════════ ABOUT ═══════════ -->
+  <section class="section" style="background:var(--bg2)">
     <div class="container about-layout">
-      <div class="about-img-col rev">
-        <div class="about-frame">
+      <div class="about-visual rev">
+        <div class="about-img-container">
           <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" alt="Team working" loading="lazy">
-          <div class="ab-badge ab-b1"><b>5★</b><small>Rating</small></div>
-          <div class="ab-badge ab-b2"><b>50+</b><small>Clients</small></div>
+          <div class="about-img-overlay"></div>
         </div>
+        <div class="about-img-border"></div>
+        <div class="ab-badge ab-b1"><b>5★</b><small>Rating</small></div>
+        <div class="ab-badge ab-b2"><b>3+</b><small>Happy Clients</small></div>
       </div>
-      <div class="about-text-col rev" style="--d:.15s">
+      <div class="about-text rev" style="--d:.15s">
         <div class="eyebrow">Who We Are</div>
         <h2 class="h2">Built to <span class="g-text">Elevate</span> Your Brand</h2>
         <p class="body-p">Arunachala Digi World helps small and growing businesses scale through affordable, high-quality digital solutions. We combine technology with creativity to build experiences that matter.</p>
@@ -165,56 +153,66 @@
     </div>
   </section>
 
-  <!-- ══════════ SERVICES ══════════ -->
-  <section class="section bg-tint" id="services">
+  <!-- ═══════════ SERVICES ═══════════ -->
+  <section class="section" id="services" style="background:var(--bg)">
     <div class="container">
       <div class="sec-hd rev">
         <div class="eyebrow">What We Do</div>
         <h2 class="h2">Our <span class="g-text">Core Services</span></h2>
-        <p class="body-p" style="max-width:500px;margin:0 auto">From building your digital presence to automating your workflows — we do it all.</p>
+        <p class="body-p">From building your digital presence to automating your workflows — we do it all.</p>
       </div>
-
       <div class="svc-grid">
-        <div class="sc rev" style="--d:0s;--accent:#2563EB">
-          <div class="sc-ico" style="background:#EFF6FF;color:#2563EB">🌐</div>
+        <div class="sc rev" style="--d:0s;--sc-color:var(--cyan);--sc-r:0;--sc-g:229;--sc-b:255">
+          <div class="sc-line"></div>
+          <div class="sc-ico" style="background:rgba(0,229,255,0.1)">🌐</div>
           <h3>Website Development</h3>
           <p>Custom websites built for speed, conversion, and stunning visual impact — from landing pages to full e-commerce.</p>
           <a href="services.html" class="sc-more">Learn more →</a>
         </div>
-        <div class="sc rev" style="--d:.07s;--accent:#EA580C">
-          <div class="sc-ico" style="background:#FFF7ED;color:#EA580C">⚡</div>
+        <div class="sc rev" style="--d:.08s;--sc-color:var(--orange);--sc-r:255;--sc-g:107;--sc-b:53">
+          <div class="sc-line"></div>
+          <div class="sc-ico" style="background:rgba(255,107,53,0.12)">⚡</div>
           <h3>Automation Services</h3>
           <p>WhatsApp, Instagram & Email automation to save time and scale customer engagement effortlessly.</p>
-          <a href="services.html" class="sc-more">Learn more →</a>
+          <a href="services.html" class="sc-more" style="color:var(--orange)">Learn more →</a>
         </div>
-        <div class="sc rev" style="--d:.14s;--accent:#16A34A">
-          <div class="sc-ico" style="background:#F0FDF4;color:#16A34A">📈</div>
+        <div class="sc rev" style="--d:.16s;--sc-color:var(--green);--sc-r:0;--sc-g:255;--sc-b:136">
+          <div class="sc-line"></div>
+          <div class="sc-ico" style="background:rgba(0,255,136,0.1)">📈</div>
           <h3>SEO Optimization</h3>
           <p>Rank higher on Google and drive organic traffic with data-driven SEO strategies tailored for your business.</p>
-          <a href="services.html" class="sc-more">Learn more →</a>
+          <a href="services.html" class="sc-more" style="color:var(--green)">Learn more →</a>
         </div>
-        <div class="sc rev" style="--d:.21s;--accent:#9333EA">
-          <div class="sc-ico" style="background:#FDF4FF;color:#9333EA">🎨</div>
+        <div class="sc rev" style="--d:.24s;--sc-color:var(--violet-l);--sc-r:168;--sc-g:85;--sc-b:247">
+          <div class="sc-line"></div>
+          <div class="sc-ico" style="background:rgba(168,85,247,0.12)">🎨</div>
           <h3>Design Services</h3>
           <p>Logos, visiting cards, and marketing posters crafted to make your brand unforgettable and professional.</p>
+          <a href="services.html" class="sc-more" style="color:var(--violet-l)">Learn more →</a>
+        </div>
+        <div class="sc sc-feat rev" style="--d:.32s">
+          <div class="sc-line" style="background:linear-gradient(90deg,var(--cyan),var(--violet-l))"></div>
+          <div class="sc-ico" style="background:rgba(0,229,255,0.1)">🤖</div>
+          <h3 style="color:var(--text)">AI / ML Projects</h3>
+          <p>Custom AI & machine learning solutions — chatbots, analytics, image recognition — to give your business a real edge.</p>
           <a href="services.html" class="sc-more">Learn more →</a>
         </div>
-        <div class="sc sc-feat rev" style="--d:.28s;--accent:#fff">
-          <div class="sc-ico" style="background:rgba(255,255,255,0.2);color:#fff">🤖</div>
-          <h3>AI / ML Projects</h3>
-          <p>Custom AI & machine learning solutions — chatbots, analytics, image recognition — to give your business a real edge.</p>
-          <a href="services.html" class="sc-more" style="color:rgba(255,255,255,0.85)">Learn more →</a>
+        <div class="sc rev" style="--d:.40s;--sc-color:var(--pink);--sc-r:244;--sc-g:63;--sc-b:142">
+          <div class="sc-line"></div>
+          <div class="sc-ico" style="background:rgba(244,63,142,0.1)">🛒</div>
+          <h3>E-Commerce Solutions</h3>
+          <p>Powerful online stores with payment gateways, inventory management, and conversion-optimized product pages.</p>
+          <a href="services.html" class="sc-more" style="color:var(--pink)">Learn more →</a>
         </div>
       </div>
-
-      <div style="text-align:center;margin-top:3rem" class="rev" style="--d:.35s">
-        <a href="services.html" class="btn-blue">View All Services →</a>
+      <div style="text-align:center;margin-top:3rem" class="rev" style="--d:.45s">
+        <a href="services.html" class="btn-primary">View All Services →</a>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ HOW IT WORKS ══════════ -->
-  <section class="section bg-white">
+  <!-- ═══════════ HOW IT WORKS ═══════════ -->
+  <section class="section" style="background:var(--bg2)">
     <div class="container">
       <div class="sec-hd rev">
         <div class="eyebrow">The Process</div>
@@ -222,35 +220,58 @@
       </div>
       <div class="steps-row">
         <div class="step-card rev" style="--d:0s">
-          <div class="step-n" style="color:#2563EB">01</div>
+          <div class="step-n">01</div>
           <h4>Discuss Your Goals</h4>
           <p>We start with a free consultation to understand your business, goals, and budget.</p>
         </div>
         <div class="step-arrow rev" style="--d:.08s">→</div>
         <div class="step-card rev" style="--d:.16s">
-          <div class="step-n" style="color:#EA580C">02</div>
+          <div class="step-n">02</div>
           <h4>Plan &amp; Design</h4>
           <p>Our team crafts a tailored digital strategy and presents a clear, actionable plan.</p>
         </div>
         <div class="step-arrow rev" style="--d:.24s">→</div>
         <div class="step-card rev" style="--d:.32s">
-          <div class="step-n" style="color:#16A34A">03</div>
+          <div class="step-n">03</div>
           <h4>Build &amp; Launch</h4>
-          <p>We execute with precision, keeping you updated every step of the way until launch.</p>
+          <p>We execute with precision, keeping you updated every step until launch and beyond.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ CLIENTS ══════════ -->
-  <section class="section bg-tint">
+  <!-- ═══════════ TESTIMONIALS (NEW) ═══════════ -->
+  <section class="section" style="background:var(--bg)">
+    <div class="container">
+      <div class="sec-hd rev">
+        <div class="eyebrow">Social Proof</div>
+        <h2 class="h2">What Clients <span class="g-text">Say</span></h2>
+        <p class="body-p">Real words from real businesses we've helped grow.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="tcard rev" style="--d:0s">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Arunachala Digi World built our entire website in record time. The results exceeded every expectation — bookings doubled within 2 months!"</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">SH</div>
+            <div><b>Sangeetha Holidays</b><small>Travel & Tourism</small></div>
+          </div>
+        </div>
+     
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CLIENTS ═══════════ -->
+  <section class="section" style="background:var(--bg2)">
     <div class="container">
       <div class="sec-hd rev">
         <div class="eyebrow">Trusted By</div>
         <h2 class="h2">Our <span class="g-text">Clients</span></h2>
       </div>
-      <div class="client-wrap rev" style="--d:.1s">
-        <div class="client-card">
+      <div class="clients-grid">
+        <div class="client-card rev" style="--d:0s">
           <div class="cc-img">
             <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=900&q=80" alt="Sangeetha Holidays" loading="lazy">
             <div class="cc-img-grad"></div>
@@ -270,29 +291,85 @@
               <div class="cc-m"><b>40%</b><small>More Bookings</small></div>
               <div class="cc-m"><b>5★</b><small>Rating</small></div>
             </div>
-            <a href="https://www.sangeethaholidays.com" target="_blank" rel="noopener" class="btn-outline-dark" style="display:inline-block;margin-top:1.5rem">Visit Website ↗</a>
+            <a href="https://www.sangeethaholidays.com" target="_blank" rel="noopener" class="btn-outline cc-btn">Visit Website ↗</a>
+          </div>
+        </div>
+        <div class="client-card rev" style="--d:.15s">
+          <div class="cc-img">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80" alt="Agarwal Event Planners" loading="lazy">
+            <div class="cc-img-grad"></div>
+            <span class="cc-tag">🎊 Events & Weddings</span>
+          </div>
+          <div class="cc-body">
+            <div class="cc-logo-row">
+              <div class="cc-logo" style="background:var(--grad-warm)">AE</div>
+              <div>
+                <h3>Agarwal Event Planners</h3>
+                <a href="https://agarwaleventplanners.com" target="_blank" rel="noopener" class="cc-url">agarwaleventplanners.com ↗</a>
+              </div>
+            </div>
+            <p>A luxury event planning company crafting dream weddings and corporate events. We built their digital identity and web presence from the ground up.</p>
+            <div class="cc-metrics">
+              <div class="cc-m"><b>2x</b><small>Lead Growth</small></div>
+              <div class="cc-m"><b>New</b><small>Web Presence</small></div>
+              <div class="cc-m"><b>5★</b><small>Rating</small></div>
+            </div>
+            <a href="https://agarwaleventplanners.com" target="_blank" rel="noopener" class="btn-outline cc-btn">Visit Website ↗</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ CTA BANNER ══════════ -->
-  <section class="cta-band">
-    <div class="cta-b1"></div>
-    <div class="cta-b2"></div>
-    <div class="container cta-inner rev">
-      <div class="eyebrow" style="color:rgba(255,255,255,0.6)">Ready to Grow?</div>
-      <h2 class="h2" style="color:#fff">Transform Your Business<br><span style="opacity:.8">Starting Today</span></h2>
-      <p style="color:rgba(255,255,255,0.7);max-width:460px;margin:0 auto 2.5rem;font-size:1.05rem;line-height:1.7">Join businesses that trust Arunachala Digi World for their digital growth journey.</p>
-      <div class="cta-btn-row">
-        <a href="contact.html" class="btn-white">Start Your Journey ✦</a>
-        <a href="https://instagram.com/arunachaladigitial" target="_blank" rel="noopener" class="btn-ghost-white">Follow on Instagram</a>
+  <!-- ═══════════ FAQ (NEW) ═══════════ -->
+  <section class="section" style="background:var(--bg)">
+    <div class="container">
+      <div class="sec-hd rev">
+        <div class="eyebrow">Got Questions?</div>
+        <h2 class="h2">Frequently <span class="g-text">Asked</span></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item rev" style="--d:0s">
+          <div class="faq-q"><span>How long does it take to build a website?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><p>Most websites are completed in 5–14 business days depending on complexity. Simple landing pages can be done in 3–5 days, while full e-commerce sites take 2–4 weeks.</p></div>
+        </div>
+        <div class="faq-item rev" style="--d:.06s">
+          <div class="faq-q"><span>What is your pricing model?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><p>We believe in affordable, transparent pricing. Every project is quoted based on scope. We offer packages for every budget — from startups to established businesses. Contact us for a free quote.</p></div>
+        </div>
+        <div class="faq-item rev" style="--d:.12s">
+          <div class="faq-q"><span>Do you provide ongoing support after project delivery?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><p>Absolutely. We offer dedicated post-launch support for all clients. This includes bug fixes, minor updates, and performance monitoring. Long-term maintenance plans are also available.</p></div>
+        </div>
+        <div class="faq-item rev" style="--d:.18s">
+          <div class="faq-q"><span>Can you work with businesses outside your local area?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><p>Yes! We work with clients across India and internationally. All communication is done online via WhatsApp, email, and video calls — making distance completely irrelevant.</p></div>
+        </div>
+        <div class="faq-item rev" style="--d:.24s">
+          <div class="faq-q"><span>What information do I need to get started?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><p>Just your business name, goals, and a rough idea of what you need. We'll take it from there during your free consultation and guide you through the entire process step by step.</p></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ FOOTER ══════════ -->
+  <!-- ═══════════ CTA BAND ═══════════ -->
+  <section class="cta-band">
+    <div class="cta-grid-overlay"></div>
+    <div class="cta-orb1"></div>
+    <div class="cta-orb2"></div>
+    <div class="container cta-inner rev">
+      <div class="cta-badge"><div class="badge"><i class="badge-pulse"></i> Ready to Grow?</div></div>
+      <h2 class="h2">Transform Your Business<br><span class="g-text">Starting Today</span></h2>
+      <p class="body-p">Join 50+ businesses that trust Arunachala Digi World for their digital growth journey.</p>
+      <div class="cta-btn-row">
+        <a href="contact.html" class="btn-primary">Start Your Journey ✦</a>
+        <a href="https://www.instagram.com/arunachaladigital/" target="_blank" rel="noopener" class="btn-ghost">Follow on Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
@@ -320,15 +397,18 @@
       </div>
       <div class="footer-col">
         <h5>Connect</h5>
-        <a href="https://instagram.com/arunachaladigitial" target="_blank" rel="noopener" class="insta-link">
+        <a href="https://www.instagram.com/arunachaladigital/" target="_blank" rel="noopener" class="insta-link">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           @arunachaladigitial
         </a>
-        <a href="mailto:shivshakti.2004.29.15@gmail.com" class="footer-email">shivshakti.2004.29.15@gmail.com</a>
       </div>
     </div>
-    <div class="footer-bar">
+    <div class="footer-bar container">
       <p>© 2025 Arunachala Digi World. All rights reserved. Crafted with ❤ for digital excellence.</p>
+      <div class="footer-bar-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
     </div>
   </footer>
 
