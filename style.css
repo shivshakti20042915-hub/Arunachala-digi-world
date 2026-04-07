@@ -6,39 +6,44 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:        #050508;
-  --bg2:       #0a0a10;
-  --bg3:       #0f0f18;
-  --surface:   #12121e;
-  --surface2:  #1a1a2e;
-  --border:    rgba(255,255,255,0.07);
-  --border2:   rgba(255,255,255,0.12);
+  /* BACKGROUNDS */
+  --bg:        #ffffff;
+  --bg2:       #f8fafc;
+  --bg3:       #eef2ff;
 
-  --text:      #f0f0ff;
-  --text2:     #a0a0c0;
-  --text3:     #606080;
+  /* CARDS / SURFACES */
+  --surface:   #ffffff;
+  --surface2:  #f1f5f9;
 
-  --cyan:      #00e5ff;
-  --cyan-d:    #00b8cc;
-  --violet:    #7c3aed;
-  --violet-l:  #a855f7;
-  --pink:      #f43f8e;
-  --orange:    #ff6b35;
-  --green:     #00ff88;
+  /* BORDERS */
+  --border:    rgba(0,0,0,0.08);
+  --border2:   rgba(0,0,0,0.15);
 
-  --grad-main: linear-gradient(135deg, #7c3aed, #00e5ff);
-  --grad-warm: linear-gradient(135deg, #ff6b35, #f43f8e);
-  --grad-cool: linear-gradient(135deg, #00e5ff, #7c3aed);
-  --grad-neon: linear-gradient(135deg, #00ff88, #00e5ff);
+  /* TEXT */
+  --text:      #0f172a;
+  --text2:     #475569;
+  --text3:     #94a3b8;
 
-  --glow-cyan:   0 0 30px rgba(0,229,255,0.25);
-  --glow-violet: 0 0 30px rgba(124,58,237,0.35);
-  --glow-pink:   0 0 30px rgba(244,63,142,0.25);
+  /* BRAND COLORS (BLUE THEME) */
+  --cyan:      #2563eb;   /* main blue */
+  --cyan-d:    #1d4ed8;
 
-  --ff-d:  'Outfit', sans-serif;
-  --ff-b:  'Inter', sans-serif;
-  --r:     14px;
-  --r-lg:  22px;
+  --violet:    #6366f1;
+  --violet-l:  #818cf8;
+  --pink:      #ec4899;
+  --orange:    #f97316;
+  --green:     #22c55e;
+
+  /* GRADIENTS */
+  --grad-main: linear-gradient(135deg, #2563eb, #6366f1);
+  --grad-warm: linear-gradient(135deg, #f97316, #ec4899);
+  --grad-cool: linear-gradient(135deg, #2563eb, #6366f1);
+  --grad-neon: linear-gradient(135deg, #22c55e, #2563eb);
+
+  /* GLOW (softer for light UI) */
+  --glow-cyan:   0 0 20px rgba(37,99,235,0.15);
+  --glow-violet: 0 0 20px rgba(99,102,241,0.2);
+  --glow-pink:   0 0 20px rgba(236,72,153,0.15);
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
