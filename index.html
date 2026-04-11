@@ -1,417 +1,1028 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Arunachala Digi World — Premium Digital Marketing Agency</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <!-- GSAP loaded here so it works on file://, localhost, and live server -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <style>
-    /* Page fade — class-based, prevents blank flash on file:// */
-    html.page-loading body { opacity: 0; }
-    html.page-loaded  body { opacity: 1; transition: opacity 0.45s ease; }
-    /* ht-word hidden until GSAP or CSS fallback reveals them */
-    .ht-word { opacity: 0; }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Arunachala DigiWorld – Digital Marketing Agency, Hyderabad</title>
+<meta name="description" content="Arunachala DigiWorld – Strategic digital marketing, creative design, and data-driven growth for businesses in Hyderabad and beyond."/>
+<link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 
-  <!-- Custom Cursor -->
-  <div class="cur-dot" id="curDot"></div>
-  <div class="cur-ring" id="curRing"></div>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="logo" data-page="home">
+    <div class="logo-icon">AD</div>
+    <div class="logo-text">Arunachala <span>DigiWorld</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a data-page="home">Home</a></li>
+    <li><a data-page="services">Services</a></li>
+    <li><a data-page="work">Our Work</a></li>
+    <li><a data-page="blogs">Blogs</a></li>
+    <li><a data-page="why">Why Need Us</a></li>
+    <li><a data-page="contact">Contact</a></li>
+  </ul>
+  <button class="btn-primary" data-page="contact">Free Consultation</button>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
 
-  <!-- ═══════════ NAVBAR ═══════════ -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-wrap">
-      <a href="index.html" class="nav-logo">
-        <div class="logo-mark">A</div>
-        <div>
-          <div class="logo-name">Arunachala</div>
-          <div class="logo-tag">Digi World</div>
-        </div>
-      </a>
-      <div class="nav-links">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="contact.html" class="nav-cta">Get Started →</a>
-      </div>
-      <button class="ham" id="ham" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mob-menu" id="mobMenu">
-      <a href="index.html" class="mob-link active">Home</a>
-      <a href="services.html" class="mob-link">Services</a>
-      <a href="contact.html" class="mob-link">Contact</a>
-      <a href="contact.html" class="nav-cta mob-cta">Get Started →</a>
-    </div>
-  </nav>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <span class="mobile-close" id="mobileClose">✕</span>
+  <a data-page="home">Home</a>
+  <a data-page="services">Services</a>
+  <a data-page="work">Our Work</a>
+  <a data-page="blogs">Blogs</a>
+  <a data-page="why">Why Need Us</a>
+  <a data-page="contact">Contact</a>
+  <button class="btn-primary btn-large" data-page="contact" style="margin-top:12px">Free Consultation →</button>
+</div>
 
-  <!-- ═══════════ HERO ═══════════ -->
+<div class="toast" id="toast">✅ Message sent! We'll contact you within 2 hours.</div>
+
+<!-- ============================================================
+     HOME PAGE
+     ============================================================ -->
+<div class="page active" id="home">
+
   <section class="hero">
-    <canvas id="heroCanvas"></canvas>
-    <div class="hero-grid-bg"></div>
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-    <div class="orb orb3"></div>
-
-    <div class="container">
-      <div class="hero-content">
-        <div class="badge hero-eyebrow ai0">
-          <i class="badge-pulse"></i> Digital Growth Partner for Businesses
-        </div>
-        <h1 class="h1 hero-title">
-          <span class="ht-line">
-            <span class="ht-word">We</span>
-            <span class="ht-word">Build</span>
-          </span>
-          <span class="ht-line">
-            <span class="ht-word g-text">Digital</span>
-            <span class="ht-word g-text">Empires</span>
-          </span>
-          <span class="ht-line">
-            <span class="ht-word">That</span>
-            <span class="ht-word">Scale</span>
-          </span>
-        </h1>
-        <p class="hero-sub ai2">
-          Arunachala Digi World transforms businesses with world-class websites, intelligent automation, stunning branding, SEO mastery, and cutting-edge AI — all at prices that make sense.
-        </p>
-        <div class="hero-btns ai3">
-          <a href="services.html" class="btn-primary">Explore Services <span>→</span></a>
-          <a href="contact.html" class="btn-outline">Free Consultation</a>
-        </div>
-        <div class="hero-stats ai4">
-          <div class="hstat"><b>3+</b><small>Clients Served</small></div>
-          <div class="hstat-sep"></div>
-          <div class="hstat"><b>20+</b><small>Services</small></div>
-          <div class="hstat-sep"></div>
-          <div class="hstat"><b>100%</b><small>Satisfaction</small></div>
+    <div class="hero-blob1"></div>
+    <div class="hero-blob2"></div>
+    <div class="hero-inner">
+      <!-- LEFT -->
+      <div class="hero-left fade-up">
+        <div class="hero-badge"><span class="dot"></span> Digital Marketing Agency · Hyderabad</div>
+        <h1>Built to Make Your<br>Business <span class="highlight">Grow Faster</span></h1>
+        <p>We give your business the systems to attract leads, close customers, and keep them coming back. Less friction. Better follow-up. More momentum.</p>
+        <div class="hero-btns">
+          <button class="btn-primary btn-large" data-page="contact">Start Growing Today 🚀</button>
+          <button class="btn-outline btn-large" data-page="work">See Our Work</button>
         </div>
       </div>
-    </div>
-
-    <!-- Marquee ticker -->
-    <div class="ticker-wrap">
-      <div class="ticker-track" id="tickerTrack">
-        <span class="ticker-item"><span class="ticker-dot"></span> Website Development</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> WhatsApp Automation</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> SEO Optimization</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> Logo &amp; Branding</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> AI / ML Projects</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> Instagram Automation</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> Email Marketing</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> E-Commerce Solutions</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> Digital Strategy</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> 3D Designs</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> Poster Making</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> Video Editing</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> AI Videos</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> Domain support</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> Hosting</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> Meta Ads</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> Social media handling</span>
-        <span class="ticker-item"><span class="ticker-dot"></span> Visting cards etc</span>
-      </div>
-    </div>
-
-    <div class="scroll-cue"><span>Scroll</span><div class="sc-line"></div></div>
-  </section>
-
-  <!-- ═══════════ ABOUT ═══════════ -->
-  <section class="section" style="background:var(--bg2)">
-    <div class="container about-layout">
-      <div class="about-visual rev">
-        <div class="about-img-container">
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" alt="Team working" loading="lazy">
-          <div class="about-img-overlay"></div>
-        </div>
-        <div class="about-img-border"></div>
-        <div class="ab-badge ab-b1"><b>5★</b><small>Rating</small></div>
-        <div class="ab-badge ab-b2"><b>3+</b><small>Happy Clients</small></div>
-      </div>
-      <div class="about-text rev" style="--d:.15s">
-        <div class="eyebrow">Who We Are</div>
-        <h2 class="h2">Built to <span class="g-text">Elevate</span> Your Brand</h2>
-        <p class="body-p">Arunachala Digi World helps small and growing businesses scale through affordable, high-quality digital solutions. We combine technology with creativity to build experiences that matter.</p>
-        <div class="quote-block">
-          <span class="qmark">"</span>
-          <p>Uplifting businesses with the best quality services at affordable prices.</p>
-        </div>
-        <div class="pills">
-          <span class="pill">🚀 Fast Delivery</span>
-          <span class="pill">💎 Premium Quality</span>
-          <span class="pill">🤝 Dedicated Support</span>
-          <span class="pill">💰 Affordable Pricing</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ SERVICES ═══════════ -->
-  <section class="section" id="services" style="background:var(--bg)">
-    <div class="container">
-      <div class="sec-hd rev">
-        <div class="eyebrow">What We Do</div>
-        <h2 class="h2">Our <span class="g-text">Core Services</span></h2>
-        <p class="body-p">From building your digital presence to automating your workflows — we do it all.</p>
-      </div>
-      <div class="svc-grid">
-        <div class="sc rev" style="--d:0s;--sc-color:var(--cyan);--sc-r:0;--sc-g:229;--sc-b:255">
-          <div class="sc-line"></div>
-          <div class="sc-ico" style="background:rgba(0,229,255,0.1)">🌐</div>
-          <h3>Website Development</h3>
-          <p>Custom websites built for speed, conversion, and stunning visual impact — from landing pages to full e-commerce.</p>
-          <a href="services.html" class="sc-more">Learn more →</a>
-        </div>
-        <div class="sc rev" style="--d:.08s;--sc-color:var(--orange);--sc-r:255;--sc-g:107;--sc-b:53">
-          <div class="sc-line"></div>
-          <div class="sc-ico" style="background:rgba(255,107,53,0.12)">⚡</div>
-          <h3>Automation Services</h3>
-          <p>WhatsApp, Instagram & Email automation to save time and scale customer engagement effortlessly.</p>
-          <a href="services.html" class="sc-more" style="color:var(--orange)">Learn more →</a>
-        </div>
-        <div class="sc rev" style="--d:.16s;--sc-color:var(--green);--sc-r:0;--sc-g:255;--sc-b:136">
-          <div class="sc-line"></div>
-          <div class="sc-ico" style="background:rgba(0,255,136,0.1)">📈</div>
-          <h3>SEO Optimization</h3>
-          <p>Rank higher on Google and drive organic traffic with data-driven SEO strategies tailored for your business.</p>
-          <a href="services.html" class="sc-more" style="color:var(--green)">Learn more →</a>
-        </div>
-        <div class="sc rev" style="--d:.24s;--sc-color:var(--violet-l);--sc-r:168;--sc-g:85;--sc-b:247">
-          <div class="sc-line"></div>
-          <div class="sc-ico" style="background:rgba(168,85,247,0.12)">🎨</div>
-          <h3>Design Services</h3>
-          <p>Logos, visiting cards, and marketing posters crafted to make your brand unforgettable and professional.</p>
-          <a href="services.html" class="sc-more" style="color:var(--violet-l)">Learn more →</a>
-        </div>
-        <div class="sc sc-feat rev" style="--d:.32s">
-          <div class="sc-line" style="background:linear-gradient(90deg,var(--cyan),var(--violet-l))"></div>
-          <div class="sc-ico" style="background:rgba(0,229,255,0.1)">🤖</div>
-          <h3 style="color:var(--text)">AI / ML Projects</h3>
-          <p>Custom AI & machine learning solutions — chatbots, analytics, image recognition — to give your business a real edge.</p>
-          <a href="services.html" class="sc-more">Learn more →</a>
-        </div>
-        <div class="sc rev" style="--d:.40s;--sc-color:var(--pink);--sc-r:244;--sc-g:63;--sc-b:142">
-          <div class="sc-line"></div>
-          <div class="sc-ico" style="background:rgba(244,63,142,0.1)">🛒</div>
-          <h3>E-Commerce Solutions</h3>
-          <p>Powerful online stores with payment gateways, inventory management, and conversion-optimized product pages.</p>
-          <a href="services.html" class="sc-more" style="color:var(--pink)">Learn more →</a>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:3rem" class="rev" style="--d:.45s">
-        <a href="services.html" class="btn-primary">View All Services →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ HOW IT WORKS ═══════════ -->
-  <section class="section" style="background:var(--bg2)">
-    <div class="container">
-      <div class="sec-hd rev">
-        <div class="eyebrow">The Process</div>
-        <h2 class="h2">How We <span class="g-text">Work</span></h2>
-      </div>
-      <div class="steps-row">
-        <div class="step-card rev" style="--d:0s">
-          <div class="step-n">01</div>
-          <h4>Discuss Your Goals</h4>
-          <p>We start with a free consultation to understand your business, goals, and budget.</p>
-        </div>
-        <div class="step-arrow rev" style="--d:.08s">→</div>
-        <div class="step-card rev" style="--d:.16s">
-          <div class="step-n">02</div>
-          <h4>Plan &amp; Design</h4>
-          <p>Our team crafts a tailored digital strategy and presents a clear, actionable plan.</p>
-        </div>
-        <div class="step-arrow rev" style="--d:.24s">→</div>
-        <div class="step-card rev" style="--d:.32s">
-          <div class="step-n">03</div>
-          <h4>Build &amp; Launch</h4>
-          <p>We execute with precision, keeping you updated every step until launch and beyond.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ TESTIMONIALS (NEW) ═══════════ -->
-  <section class="section" style="background:var(--bg)">
-    <div class="container">
-      <div class="sec-hd rev">
-        <div class="eyebrow">Social Proof</div>
-        <h2 class="h2">What Clients <span class="g-text">Say</span></h2>
-        <p class="body-p">Real words from real businesses we've helped grow.</p>
-      </div>
-      <div class="testimonials-grid">
-        <div class="tcard rev" style="--d:0s">
-          <div class="tcard-stars">★★★★★</div>
-          <p class="tcard-text">"Arunachala Digi World built our entire website in record time. The results exceeded every expectation — bookings doubled within 2 months!"</p>
-          <div class="tcard-author">
-            <div class="tcard-avatar">SH</div>
-            <div><b>Sangeetha Holidays</b><small>Travel & Tourism</small></div>
+      <!-- RIGHT – happy person + floating cards -->
+      <div class="hero-right fade-up">
+        <div class="hero-person-wrap">
+          <div class="hero-person-bg">
+            <span class="hero-person-emoji">🧑‍💼</span>
+          </div>
+          <!-- Floating cards -->
+          <div class="float-card fc-top-left">
+            <div class="fc-label">Monthly Leads</div>
+            <div class="fc-value">412 <span style="color:var(--green);font-size:.8rem">↑87%</span></div>
+            <div class="fc-sub">vs last month</div>
+          </div>
+          <div class="float-card fc-top-right">
+            <div class="fc-row">
+              <span class="fc-icon">⭐</span>
+              <div>
+                <div class="fc-label">Client Rating</div>
+                <div class="fc-value">4.9 / 5.0</div>
+              </div>
+            </div>
+          </div>
+          <div class="float-card fc-bottom-right">
+            <div class="fc-label">ROAS (Google Ads)</div>
+            <div class="fc-value">3.2x</div>
+            <div class="fc-sub">Return on Ad Spend</div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stat-item fade-up">
+        <div class="stat-divider"></div>
+        <span class="stat-num"><span class="counter" data-target="3">0</span><span>+</span></span>
+        <div class="stat-label">Happy Clients Served</div>
+      </div>
+      <div class="stat-item fade-up">
+        <div class="stat-divider"></div>
+        <span class="stat-num"><span class="counter" data-target="40">0</span><span>+</span></span>
+        <div class="stat-label">Projects Delivered</div>
+      </div>
+      <div class="stat-item fade-up">
+        <div class="stat-divider"></div>
+        <span class="stat-num"><span class="counter" data-target="87">0</span><span>%</span></span>
+        <div class="stat-label">Average Traffic Growth</div>
+      </div>
+      <div class="stat-item fade-up">
+        <div class="stat-divider"></div>
+        <span class="stat-num"><span class="counter" data-target="1">0</span><span>+</span></span>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS MARQUEE (like GoHighLevel screenshot) -->
+  <div class="tools-marquee">
+    <div class="marquee-inner">
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-ig">📸</div>Instagram</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-fb">f</div>Facebook</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-yt">▶</div>YouTube</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-wa">💬</div>WhatsApp</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-ga" style="color:#fff">G</div>Google Analytics</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-gads" style="color:#fff">Ads</div>Google Ads</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-zap" style="color:#fff">⚡</div>Zapier</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-woo" style="color:#fff">W</div>WooCommerce</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-wp" style="color:#fff">W</div>WordPress</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-xero" style="color:#fff">X</div>Xero</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-emoji">📊</div>Meta Ads</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-emoji">🎯</div>SEO Tools</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-emoji">📧</div>Email Mktg</div></div>
+      <!-- duplicate for seamless loop -->
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-ig">📸</div>Instagram</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-fb">f</div>Facebook</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-yt">▶</div>YouTube</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-wa">💬</div>WhatsApp</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-ga" style="color:#fff">G</div>Google Analytics</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-gads" style="color:#fff">Ads</div>Google Ads</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-zap" style="color:#fff">⚡</div>Zapier</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-woo" style="color:#fff">W</div>WooCommerce</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-wp" style="color:#fff">W</div>WordPress</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-xero" style="color:#fff">X</div>Xero</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-emoji">📊</div>Meta Ads</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-emoji">🎯</div>SEO Tools</div></div>
+      <div class="marquee-item"><div class="marquee-logo"><div class="micon micon-emoji">📧</div>Email Mktg</div></div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS – Capture / Nurture / Close / Grow -->
+  <section class="how-works">
+    <div class="section-header">
+      <div class="section-label">Our Strategy</div>
+      <h2 class="section-title">Your all-in-one solution for business growth</h2>
+      <p class="section-sub">Everything you need to attract, convert, and retain customers — beautifully orchestrated from one partner.</p>
+    </div>
+    <div class="steps-tabs tab-group" id="homeTabGroup">
+      <button class="tab-btn active" data-tab="tab-capture">🎯 Capture</button>
+      <button class="tab-btn" data-tab="tab-nurture">💬 Nurture</button>
+      <button class="tab-btn" data-tab="tab-close">🤝 Close</button>
+      <button class="tab-btn" data-tab="tab-grow">📈 Grow</button>
+    </div>
+    <div id="homeTabPanels">
+      <div class="tab-panel active" id="tab-capture">
+        <div class="tab-features">
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">🌐</div><div class="tab-feature-text"><h4>Landing Pages & Websites</h4><p>High-converting pages designed to turn visitors into leads instantly.</p></div></div>
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">📣</div><div class="tab-feature-text"><h4>Paid Ad Campaigns</h4><p>Google, Meta, and Instagram ads targeting the right audience at the right time.</p></div></div>
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">🔍</div><div class="tab-feature-text"><h4>SEO & Organic Growth</h4><p>Rank higher on Google and bring in free, qualified traffic every day.</p></div></div>
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">📱</div><div class="tab-feature-text"><h4>Social Media Management</h4><p>Consistent posting, engaging content, and community building across all platforms.</p></div></div>
+        </div>
+        <div class="tab-visual fade-up">
+          <div style="text-align:center">
+            <div style="font-size:3.5rem;margin-bottom:14px">🎯</div>
+            <h3 style="font-size:1.1rem;margin-bottom:8px;color:var(--text)">Lead Generation Funnel</h3>
+            <p style="color:var(--text-muted);font-size:.88rem;max-width:260px;margin:0 auto">We build targeted funnels that bring high-quality leads directly to your business.</p>
+            <div class="result-cards"><div class="result-card"><div class="num">5x</div><div class="lbl">More Leads</div></div><div class="result-card"><div class="num">↓62%</div><div class="lbl">Cost Per Lead</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-nurture">
+        <div class="tab-features">
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">✉️</div><div class="tab-feature-text"><h4>Email & WhatsApp Campaigns</h4><p>Automated follow-ups that keep your brand top-of-mind for every prospect.</p></div></div>
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">🎬</div><div class="tab-feature-text"><h4>Content & Video Reels</h4><p>Scroll-stopping reels and posts that build trust and drive engagement.</p></div></div>
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">🤖</div><div class="tab-feature-text"><h4>Retargeting Ads</h4><p>Re-engage warm audiences who've shown interest but haven't converted yet.</p></div></div>
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">📊</div><div class="tab-feature-text"><h4>Performance Analytics</h4><p>Weekly reports and dashboards so you always know what's working.</p></div></div>
+        </div>
+        <div class="tab-visual fade-up">
+          <div style="text-align:center">
+            <div style="font-size:3.5rem;margin-bottom:14px">💬</div>
+            <h3 style="font-size:1.1rem;margin-bottom:8px;color:var(--text)">Relationship Building</h3>
+            <p style="color:var(--text-muted);font-size:.88rem;max-width:260px;margin:0 auto">We nurture every lead with personalised content until they're ready to buy.</p>
+            <div class="result-cards"><div class="result-card"><div class="num">3x</div><div class="lbl">Engagement Rate</div></div><div class="result-card"><div class="num">+40%</div><div class="lbl">Email Open Rate</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-close">
+        <div class="tab-features">
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">🛒</div><div class="tab-feature-text"><h4>Conversion Optimisation</h4><p>A/B testing and CRO strategies that turn browsers into buyers.</p></div></div>
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">⭐</div><div class="tab-feature-text"><h4>Review & Reputation Management</h4><p>Build social proof with a steady stream of 5-star reviews.</p></div></div>
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">📅</div><div class="tab-feature-text"><h4>Appointment Booking Systems</h4><p>Seamless booking integrations that fill your calendar automatically.</p></div></div>
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">💰</div><div class="tab-feature-text"><h4>Sales Funnel Automation</h4><p>End-to-end funnels that guide prospects to checkout with minimal friction.</p></div></div>
+        </div>
+        <div class="tab-visual fade-up">
+          <div style="text-align:center">
+            <div style="font-size:3.5rem;margin-bottom:14px">🤝</div>
+            <h3 style="font-size:1.1rem;margin-bottom:8px;color:var(--text)">Closing More Deals</h3>
+            <p style="color:var(--text-muted);font-size:.88rem;max-width:260px;margin:0 auto">Smart automation and CRO that converts warm leads into paying customers.</p>
+            <div class="result-cards"><div class="result-card"><div class="num">↑34%</div><div class="lbl">Conversion Rate</div></div><div class="result-card"><div class="num">2.8x</div><div class="lbl">Revenue Growth</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-grow">
+        <div class="tab-features">
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">🔄</div><div class="tab-feature-text"><h4>Loyalty & Retention Campaigns</h4><p>Keep existing customers coming back with exclusive offers and personalised messaging.</p></div></div>
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">📢</div><div class="tab-feature-text"><h4>Referral Programs</h4><p>Turn happy customers into brand ambassadors who bring in new business.</p></div></div>
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">📈</div><div class="tab-feature-text"><h4>Monthly Strategy Reviews</h4><p>We analyse data and continuously optimise campaigns for better results each month.</p></div></div>
+          <div class="tab-feature fade-up"><div class="tab-feature-icon">🌟</div><div class="tab-feature-text"><h4>Brand Authority Building</h4><p>Position your business as the go-to expert in your industry through thought leadership.</p></div></div>
+        </div>
+        <div class="tab-visual fade-up">
+          <div style="text-align:center">
+            <div style="font-size:3.5rem;margin-bottom:14px">📈</div>
+            <h3 style="font-size:1.1rem;margin-bottom:8px;color:var(--text)">Sustainable Growth</h3>
+            <p style="color:var(--text-muted);font-size:.88rem;max-width:260px;margin:0 auto">We build scalable systems that compound your growth month over month.</p>
+            <div class="result-cards"><div class="result-card"><div class="num">90%</div><div class="lbl">Client Retention</div></div><div class="result-card"><div class="num">4.9★</div><div class="lbl">Avg Rating</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HAPPY CLIENT SECTION (from screenshot inspiration) -->
+  <section class="happy-section">
+    <div class="section-header center">
+      <div class="section-label">Results</div>
+      <h2 class="section-title">Built to make things easier</h2>
+      <p class="section-sub">We give your business the systems to attract leads, close customers and keep them coming back. Less friction. Better follow-up. More momentum.</p>
+    </div>
+    <div class="happy-grid">
+      <div class="fade-up">
+        <div class="happy-person-card">
+          <span class="happy-emoji">😄</span>
+          <div class="happy-bubble top-left">
+            <div class="hb-label">New Leads This Month</div>
+            <div class="hb-row"><div class="hb-value hb-green">+312 Leads</div></div>
+          </div>
+          <div class="happy-bubble top-right">
+            <div class="hb-label">Avg. ROAS</div>
+            <div class="hb-value">3.8x 🚀</div>
+          </div>
+        </div>
+      </div>
+      <div class="happy-points fade-up">
+        <div class="happy-point">
+          <div class="hp-icon orange">🎯</div>
+          <div class="hp-text">
+            <h4>Attract the Right Leads</h4>
+            <p>We set up targeted campaigns and optimised pages that bring in qualified leads who are actually interested in what you offer — not random clicks.</p>
+          </div>
+        </div>
+        <div class="happy-point">
+          <div class="hp-icon blue">💬</div>
+          <div class="hp-text">
+            <h4>Automated Follow-Up That Converts</h4>
+            <p>Never lose a lead to silence again. Our automated WhatsApp and email sequences follow up within minutes and keep prospects engaged until they buy.</p>
+          </div>
+        </div>
+        <div class="happy-point">
+          <div class="hp-icon green">📊</div>
+          <div class="hp-text">
+            <h4>See Exactly What's Working</h4>
+            <p>Clean weekly dashboards and reports show you your leads, costs, and ROI in plain language — no confusing jargon, just clear numbers.</p>
+          </div>
+        </div>
+        <div class="happy-point">
+          <div class="hp-icon purple">🔄</div>
+          <div class="hp-text">
+            <h4>Keep Customers Coming Back</h4>
+            <p>Retention campaigns, loyalty offers, and review generation systems that turn one-time buyers into repeat customers and brand advocates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="section-header center">
+      <div class="section-label">How We Work</div>
+      <h2 class="section-title">Our Proven 5-Step Process</h2>
+      <p class="section-sub">A clear, structured approach that delivers measurable results every time.</p>
+    </div>
+    <div class="process-flow">
+      <div class="process-step fade-up"><div class="process-num">1</div><h4>Discovery</h4><p>We understand your business, goals, audience, and competition deeply.</p></div>
+      <div class="process-step fade-up"><div class="process-num">2</div><h4>Strategy</h4><p>We build a customised digital marketing roadmap tailored for your growth.</p></div>
+      <div class="process-step fade-up"><div class="process-num">3</div><h4>Create</h4><p>Our team produces high-quality content, ads, and creatives at scale.</p></div>
+      <div class="process-step fade-up"><div class="process-num">4</div><h4>Launch</h4><p>We deploy campaigns across the right channels with precise targeting.</p></div>
+      <div class="process-step fade-up"><div class="process-num">5</div><h4>Optimise</h4><p>We track, analyse, and continuously improve results every week.</p></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="section-header center">
+      <div class="section-label">Testimonials</div>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-sub">Real results from real businesses across Hyderabad and beyond.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Arunachala Digi World built our entire website in record time. The results exceeded every expectation — bookings doubled within 2 months!"</p>
+        <div class="testimonial-author"><div class="author-avatar">RK</div><div><div class="author-name">Venkata Srikanth</div><div class="author-biz">Sangeetha Holidays, Hyderabad</div></div></div>
+      </div>
      
-        
-      </div>
     </div>
   </section>
 
-  <!-- ═══════════ CLIENTS ═══════════ -->
-  <section class="section" style="background:var(--bg2)">
-    <div class="container">
-      <div class="sec-hd rev">
-        <div class="eyebrow">Trusted By</div>
-        <h2 class="h2">Our <span class="g-text">Clients</span></h2>
-      </div>
-      <div class="clients-grid">
-        <div class="client-card rev" style="--d:0s">
-          <div class="cc-img">
-            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=900&q=80" alt="Sangeetha Holidays" loading="lazy">
-            <div class="cc-img-grad"></div>
-            <span class="cc-tag">✈ Travel & Tourism</span>
-          </div>
-          <div class="cc-body">
-            <div class="cc-logo-row">
-              <div class="cc-logo">SH</div>
-              <div>
-                <h3>Sangeetha Holidays</h3>
-                <a href="https://www.sangeethaholidays.com" target="_blank" rel="noopener" class="cc-url">sangeethaholidays.com ↗</a>
-              </div>
-            </div>
-            <p>A premier travel company offering unforgettable holiday experiences. We built their digital presence and helped grow their online bookings dramatically.</p>
-            <div class="cc-metrics">
-              <div class="cc-m"><b>3x</b><small>Traffic Growth</small></div>
-              <div class="cc-m"><b>40%</b><small>More Bookings</small></div>
-              <div class="cc-m"><b>5★</b><small>Rating</small></div>
-            </div>
-            <a href="https://www.sangeethaholidays.com" target="_blank" rel="noopener" class="btn-outline cc-btn">Visit Website ↗</a>
-          </div>
-        </div>
-        <div class="client-card rev" style="--d:.15s">
-          <div class="cc-img">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80" alt="Agarwal Event Planners" loading="lazy">
-            <div class="cc-img-grad"></div>
-            <span class="cc-tag">🎊 Events & Weddings</span>
-          </div>
-          <div class="cc-body">
-            <div class="cc-logo-row">
-              <div class="cc-logo" style="background:var(--grad-warm)">AE</div>
-              <div>
-                <h3>Agarwal Event Planners</h3>
-                <a href="https://agarwaleventplanners.com" target="_blank" rel="noopener" class="cc-url">agarwaleventplanners.com ↗</a>
-              </div>
-            </div>
-            <p>A luxury event planning company crafting dream weddings and corporate events. We built their digital identity and web presence from the ground up.</p>
-            <div class="cc-metrics">
-              <div class="cc-m"><b>2x</b><small>Lead Growth</small></div>
-              <div class="cc-m"><b>New</b><small>Web Presence</small></div>
-              <div class="cc-m"><b>5★</b><small>Rating</small></div>
-            </div>
-            <a href="https://agarwaleventplanners.com" target="_blank" rel="noopener" class="btn-outline cc-btn">Visit Website ↗</a>
-          </div>
-        </div>
-      </div>
+  <section class="cta-section">
+    <h2>Let's Build Something Amazing Together</h2>
+    <p>Get a free strategy consultation and discover exactly how we can grow your business.</p>
+    <div class="cta-btns">
+      <button class="btn-white" data-page="contact">Get Free Consultation 🚀</button>
+      <button class="btn-outline" style="border-color:rgba(255,255,255,.4);color:white" data-page="services">Explore Services</button>
     </div>
   </section>
 
-  <!-- ═══════════ FAQ (NEW) ═══════════ -->
-  <section class="section" style="background:var(--bg)">
-    <div class="container">
-      <div class="sec-hd rev">
-        <div class="eyebrow">Got Questions?</div>
-        <h2 class="h2">Frequently <span class="g-text">Asked</span></h2>
+</div><!-- /home -->
+
+
+<!-- ============================================================
+     SERVICES PAGE
+     ============================================================ -->
+<div class="page" id="services">
+  <div class="page-hero">
+    <div class="section-label" style="justify-content:center">What We Offer</div>
+    <h1>Our Digital Marketing Services</h1>
+    <p>A full suite of digital solutions to help your business grow, engage, and convert across every channel.</p>
+  </div>
+  <section>
+    <div class="services-grid">
+      <div class="service-card fade-up" data-service="seo">
+        <div class="service-icon">🔍</div>
+        <h3>Search Engine Optimisation (SEO)</h3>
+        <p>Rank higher on Google with technical SEO, on-page optimisation, link building, and local SEO strategies that drive sustainable organic traffic.</p>
+        <div class="service-arrow">Read More →</div>
       </div>
-      <div class="faq-list">
-        <div class="faq-item rev" style="--d:0s">
-          <div class="faq-q"><span>How long does it take to build a website?</span><span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Most websites are completed in 5–14 business days depending on complexity. Simple landing pages can be done in 3–5 days, while full e-commerce sites take 2–4 weeks.</p></div>
-        </div>
-        <div class="faq-item rev" style="--d:.06s">
-          <div class="faq-q"><span>What is your pricing model?</span><span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>We believe in affordable, transparent pricing. Every project is quoted based on scope. We offer packages for every budget — from startups to established businesses. Contact us for a free quote.</p></div>
-        </div>
-        <div class="faq-item rev" style="--d:.12s">
-          <div class="faq-q"><span>Do you provide ongoing support after project delivery?</span><span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Absolutely. We offer dedicated post-launch support for all clients. This includes bug fixes, minor updates, and performance monitoring. Long-term maintenance plans are also available.</p></div>
-        </div>
-        <div class="faq-item rev" style="--d:.18s">
-          <div class="faq-q"><span>Can you work with businesses outside your local area?</span><span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Yes! We work with clients across India and internationally. All communication is done online via WhatsApp, email, and video calls — making distance completely irrelevant.</p></div>
-        </div>
-        <div class="faq-item rev" style="--d:.24s">
-          <div class="faq-q"><span>What information do I need to get started?</span><span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Just your business name, goals, and a rough idea of what you need. We'll take it from there during your free consultation and guide you through the entire process step by step.</p></div>
-        </div>
+      <div class="service-card fade-up" data-service="ppc">
+        <div class="service-icon">📣</div>
+        <h3>Paid Advertising (PPC)</h3>
+        <p>High-ROI Google Ads, Meta Ads, and Instagram Ads campaigns with precise targeting, compelling creatives, and constant optimisation.</p>
+        <div class="service-arrow">Read More →</div>
+      </div>
+      <div class="service-card fade-up" data-service="social">
+        <div class="service-icon">📱</div>
+        <h3>Social Media Marketing</h3>
+        <p>End-to-end social media management including strategy, content creation, community management, and growth hacking across all platforms.</p>
+        <div class="service-arrow">Read More →</div>
+      </div>
+      <div class="service-card fade-up" data-service="web">
+        <div class="service-icon">🌐</div>
+        <h3>Website Design & Development</h3>
+        <p>Fast, mobile-friendly, and conversion-optimised websites that leave a lasting impression and turn visitors into customers.</p>
+        <div class="service-arrow">Read More →</div>
+      </div>
+      <div class="service-card fade-up" data-service="reel">
+        <div class="service-icon">🎬</div>
+        <h3>Reel & Video Production</h3>
+        <p>Trending, scroll-stopping Instagram and YouTube reels that build brand awareness and skyrocket your organic reach.</p>
+        <div class="service-arrow">Read More →</div>
+      </div>
+      <div class="service-card fade-up" data-service="brand">
+        <div class="service-icon">🎨</div>
+        <h3>Graphic Design & Branding</h3>
+        <p>Professional logos, brand identities, social media graphics, posters, and marketing collateral that make your brand unforgettable.</p>
+        <div class="service-arrow">Read More →</div>
+      </div>
+      <div class="service-card fade-up" data-service="email">
+        <div class="service-icon">✉️</div>
+        <h3>Email & WhatsApp Marketing</h3>
+        <p>Personalised, automated campaigns that nurture leads, recover abandoned carts, and drive repeat purchases at scale.</p>
+        <div class="service-arrow">Read More →</div>
+      </div>
+      <div class="service-card fade-up" data-service="content">
+        <div class="service-icon">📝</div>
+        <h3>Content Marketing</h3>
+        <p>Blog posts, articles, scripts, and website copy crafted to educate your audience, rank on Google, and build brand authority.</p>
+        <div class="service-arrow">Read More →</div>
+      </div>
+      <div class="service-card fade-up" data-service="analytics">
+        <div class="service-icon">📊</div>
+        <h3>Analytics & Reporting</h3>
+        <p>Clear, actionable weekly and monthly reports tracking every metric that matters — so you always know your ROI.</p>
+        <div class="service-arrow">Read More →</div>
       </div>
     </div>
   </section>
+  <section class="cta-section">
+    <h2>Not sure which service you need?</h2>
+    <p>Book a free 30-minute call and we'll map out the perfect strategy for your business goals.</p>
+    <div class="cta-btns"><button class="btn-white" data-page="contact">Book Free Call 📞</button></div>
+  </section>
+</div><!-- /services -->
 
-  <!-- ═══════════ CTA BAND ═══════════ -->
-  <section class="cta-band">
-    <div class="cta-grid-overlay"></div>
-    <div class="cta-orb1"></div>
-    <div class="cta-orb2"></div>
-    <div class="container cta-inner rev">
-      <div class="cta-badge"><div class="badge"><i class="badge-pulse"></i> Ready to Grow?</div></div>
-      <h2 class="h2">Transform Your Business<br><span class="g-text">Starting Today</span></h2>
-      <p class="body-p">Join 50+ businesses that trust Arunachala Digi World for their digital growth journey.</p>
-      <div class="cta-btn-row">
-        <a href="contact.html" class="btn-primary">Start Your Journey ✦</a>
-        <a href="https://www.instagram.com/arunachaladigital/" target="_blank" rel="noopener" class="btn-ghost">Follow on Instagram</a>
+
+<!-- SERVICE DETAIL PAGES -->
+<div class="service-detail-page" id="sd-seo">
+  <div class="service-detail-hero">
+    <div class="service-detail-wrap">
+      <div class="back-btn" onclick="goBackToServices()">← Back to Services</div>
+      <div class="section-label">Service Deep Dive</div>
+      <h1>Search Engine Optimisation (SEO)</h1>
+      <p style="color:var(--text-muted);font-size:1rem;margin-top:12px;max-width:600px;line-height:1.7">Rank higher on Google and drive consistent, free, high-quality traffic to your business — month after month.</p>
+    </div>
+  </div>
+  <div class="service-detail-body">
+    <div class="service-detail-wrap">
+      <h2>What is SEO and why does it matter?</h2>
+      <p>Search Engine Optimisation (SEO) is the process of improving your website's visibility on Google and other search engines. When your potential customers search for products or services you offer, you want to appear at the top — not your competitors.</p>
+      <p>Over 75% of users never scroll past the first page of search results. If you're not ranking on page one, you're essentially invisible. Our SEO strategies change that.</p>
+      <div class="blog-highlight">💡 Businesses that rank on the first page of Google capture over 91% of all search traffic. SEO delivers the highest long-term ROI of any digital marketing channel.</div>
+      <h2>What's Included in Our SEO Service</h2>
+      <ul>
+        <li><strong>Technical SEO Audit</strong> — We fix site speed, mobile issues, crawl errors, and indexing problems that prevent you from ranking.</li>
+        <li><strong>Keyword Research</strong> — We find the exact search terms your customers use and target those strategically.</li>
+        <li><strong>On-Page Optimisation</strong> — Title tags, meta descriptions, header structure, internal linking, and content optimisation.</li>
+        <li><strong>Local SEO & Google Maps</strong> — Rank for "near me" searches and dominate your local market.</li>
+        <li><strong>Link Building</strong> — We earn high-quality backlinks from authoritative websites to boost your domain authority.</li>
+        <li><strong>Monthly Reporting</strong> — Clear reports showing keyword rankings, traffic growth, and actions taken.</li>
+      </ul>
+      <h2>Our SEO Results</h2>
+      <p>Our clients typically see measurable ranking improvements within 60–90 days and significant traffic growth within 6 months. One of our clients in the healthcare sector went from page 5 to ranking #1 for 40+ local keywords in just 4 months — resulting in a 320% increase in organic traffic.</p>
+      <div style="margin-top:32px"><button class="btn-primary btn-large" data-page="contact">Get an SEO Audit →</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="service-detail-page" id="sd-ppc">
+  <div class="service-detail-hero"><div class="service-detail-wrap"><div class="back-btn" onclick="goBackToServices()">← Back to Services</div><div class="section-label">Service Deep Dive</div><h1>Paid Advertising (PPC)</h1><p style="color:var(--text-muted);font-size:1rem;margin-top:12px;max-width:600px;line-height:1.7">High-ROI Google, Meta, and Instagram ad campaigns that bring ready-to-buy customers directly to you.</p></div></div>
+  <div class="service-detail-body"><div class="service-detail-wrap">
+    <h2>Why Paid Ads?</h2>
+    <p>While SEO takes time, paid advertising delivers results immediately. We create and manage ad campaigns across Google, Facebook, Instagram, and more — targeting people who are actively searching for what you sell.</p>
+    <div class="blog-highlight">📣 Our clients average a 3.2x return on ad spend (ROAS). For every ₹1 invested in ads, they get ₹3.20 back in revenue.</div>
+    <h2>What We Manage</h2>
+    <ul>
+      <li>Google Search & Display Ads</li>
+      <li>Meta (Facebook + Instagram) Ads</li>
+      <li>YouTube Pre-roll Ads</li>
+      <li>Retargeting campaigns for warm audiences</li>
+      <li>Landing page creation optimised for conversions</li>
+      <li>A/B testing of creatives and copy</li>
+      <li>Weekly performance reports and budget optimisation</li>
+    </ul>
+    <div style="margin-top:32px"><button class="btn-primary btn-large" data-page="contact">Start Your Ad Campaign →</button></div>
+  </div></div>
+</div>
+
+<div class="service-detail-page" id="sd-social">
+  <div class="service-detail-hero"><div class="service-detail-wrap"><div class="back-btn" onclick="goBackToServices()">← Back to Services</div><div class="section-label">Service Deep Dive</div><h1>Social Media Marketing</h1><p style="color:var(--text-muted);font-size:1rem;margin-top:12px;max-width:600px;line-height:1.7">Build a powerful brand presence across Instagram, Facebook, YouTube, and more with consistent, high-quality content.</p></div></div>
+  <div class="service-detail-body"><div class="service-detail-wrap">
+    <h2>Beyond Just Posting</h2>
+    <p>Most businesses post randomly with no strategy and wonder why social media doesn't work. Our approach is different — every post has a purpose, every reel is designed to grow your reach, and every campaign is tracked for results.</p>
+    <div class="blog-highlight">📱 One of our clients grew from 200 to 8,500 Instagram followers in 90 days — resulting in fully booked appointments for 3 consecutive months.</div>
+    <h2>Our Social Media Management Includes</h2>
+    <ul>
+      <li>Monthly content calendar creation</li>
+      <li>Custom graphics, carousels, and story templates</li>
+      <li>Instagram & Facebook Reels scripting and production</li>
+      <li>Caption writing with strategic hashtags</li>
+      <li>Community management (replies, DMs, comments)</li>
+      <li>Influencer outreach and collaboration</li>
+      <li>Monthly analytics and growth report</li>
+    </ul>
+    <div style="margin-top:32px"><button class="btn-primary btn-large" data-page="contact">Grow My Social Media →</button></div>
+  </div></div>
+</div>
+
+<div class="service-detail-page" id="sd-web">
+  <div class="service-detail-hero"><div class="service-detail-wrap"><div class="back-btn" onclick="goBackToServices()">← Back to Services</div><div class="section-label">Service Deep Dive</div><h1>Website Design & Development</h1><p style="color:var(--text-muted);font-size:1rem;margin-top:12px;max-width:600px;line-height:1.7">Beautiful, fast, mobile-first websites that convert visitors into customers around the clock.</p></div></div>
+  <div class="service-detail-body"><div class="service-detail-wrap">
+    <h2>Your Website is Your #1 Salesperson</h2>
+    <p>Your website works 24/7, 365 days a year. A poorly designed, slow, or confusing website drives potential customers straight to your competitors. We build websites that impress, rank on Google, and convert visitors into leads.</p>
+    <div class="blog-highlight">🌐 We've built websites that increased client inquiries by 5x within 60 days of launch — just through better design, speed, and clear calls-to-action.</div>
+    <h2>What We Build</h2>
+    <ul>
+      <li>Business websites with clear conversion paths</li>
+      <li>E-commerce stores with smooth checkout experiences</li>
+      <li>Restaurant & booking websites with online reservations</li>
+      <li>Landing pages for ad campaigns</li>
+      <li>Portfolio and professional service websites</li>
+      <li>WordPress, Webflow, or custom-coded solutions</li>
+    </ul>
+    <div style="margin-top:32px"><button class="btn-primary btn-large" data-page="contact">Design My Website →</button></div>
+  </div></div>
+</div>
+
+<div class="service-detail-page" id="sd-reel">
+  <div class="service-detail-hero"><div class="service-detail-wrap"><div class="back-btn" onclick="goBackToServices()">← Back to Services</div><div class="section-label">Service Deep Dive</div><h1>Reel & Video Production</h1><p style="color:var(--text-muted);font-size:1rem;margin-top:12px;max-width:600px;line-height:1.7">Scroll-stopping video content that builds your brand, goes viral, and drives real business results.</p></div></div>
+  <div class="service-detail-body"><div class="service-detail-wrap">
+    <h2>Why Video is Non-Negotiable in 2025</h2>
+    <p>Instagram Reels and YouTube Shorts are the #1 organic reach tool available to small businesses right now. Video content gets 3x more engagement than static posts and is being pushed heavily by all major platforms.</p>
+    <div class="blog-highlight">🎬 Our client Bliss Salon had two reels hit 2.3 lakh views organically — resulting in a 3-month waitlist for appointments with zero paid promotion.</div>
+    <h2>Our Video Services Include</h2>
+    <ul>
+      <li>Monthly reel scripting, filming guidance, and editing</li>
+      <li>Before/after transformation videos</li>
+      <li>Product showcases and demo videos</li>
+      <li>Trending audio & hook selection</li>
+      <li>YouTube Short repurposing</li>
+      <li>Caption and hashtag strategy for maximum reach</li>
+    </ul>
+    <div style="margin-top:32px"><button class="btn-primary btn-large" data-page="contact">Start Creating Reels →</button></div>
+  </div></div>
+</div>
+
+<div class="service-detail-page" id="sd-brand">
+  <div class="service-detail-hero"><div class="service-detail-wrap"><div class="back-btn" onclick="goBackToServices()">← Back to Services</div><div class="section-label">Service Deep Dive</div><h1>Graphic Design & Branding</h1><p style="color:var(--text-muted);font-size:1rem;margin-top:12px;max-width:600px;line-height:1.7">From logos to full brand identity systems — we make your business look professional, memorable, and trustworthy.</p></div></div>
+  <div class="service-detail-body"><div class="service-detail-wrap">
+    <h2>Why Strong Branding Matters</h2>
+    <p>First impressions are formed in less than 0.1 seconds. Your logo, colours, and visual identity communicate trust, professionalism, and personality before a customer reads a single word. Weak branding costs you sales.</p>
+    <div class="blog-highlight">🎨 A consistent brand identity across all touchpoints can increase revenue by up to 23%. We make sure every customer interaction reinforces trust in your brand.</div>
+    <h2>What We Design</h2>
+    <ul>
+      <li>Logo design and brand identity systems</li>
+      <li>Social media post templates (feed, stories, reels covers)</li>
+      <li>Festival and promotional posters</li>
+      <li>Brochures, flyers, and print materials</li>
+      <li>Business cards and letterheads</li>
+      <li>Product packaging and labels</li>
+    </ul>
+    <div style="margin-top:32px"><button class="btn-primary btn-large" data-page="contact">Build My Brand →</button></div>
+  </div></div>
+</div>
+
+<div class="service-detail-page" id="sd-email">
+  <div class="service-detail-hero"><div class="service-detail-wrap"><div class="back-btn" onclick="goBackToServices()">← Back to Services</div><div class="section-label">Service Deep Dive</div><h1>Email & WhatsApp Marketing</h1><p style="color:var(--text-muted);font-size:1rem;margin-top:12px;max-width:600px;line-height:1.7">Automated, personalised messaging that nurtures leads and drives repeat business at scale.</p></div></div>
+  <div class="service-detail-body"><div class="service-detail-wrap">
+    <h2>The Most Underused Channel in India</h2>
+    <p>Email marketing delivers an average ROI of 42:1 — that's ₹42 back for every ₹1 spent. WhatsApp has a 98% open rate compared to email's 20%. Together, they form the most powerful follow-up system for Indian businesses.</p>
+    <div class="blog-highlight">✉️ Our automated WhatsApp follow-up sequences have helped clients recover 40% of leads who initially didn't respond — turning cold leads into paying customers.</div>
+    <h2>What We Set Up For You</h2>
+    <ul>
+      <li>WhatsApp Business API integration and automation</li>
+      <li>Welcome sequences for new leads</li>
+      <li>Festival and promotional campaign broadcasts</li>
+      <li>Abandoned cart recovery sequences</li>
+      <li>Post-purchase review and referral requests</li>
+      <li>Re-engagement campaigns for cold contacts</li>
+    </ul>
+    <div style="margin-top:32px"><button class="btn-primary btn-large" data-page="contact">Set Up My Automation →</button></div>
+  </div></div>
+</div>
+
+<div class="service-detail-page" id="sd-content">
+  <div class="service-detail-hero"><div class="service-detail-wrap"><div class="back-btn" onclick="goBackToServices()">← Back to Services</div><div class="section-label">Service Deep Dive</div><h1>Content Marketing</h1><p style="color:var(--text-muted);font-size:1rem;margin-top:12px;max-width:600px;line-height:1.7">Strategic content that educates your audience, ranks on Google, and positions your brand as the go-to expert.</p></div></div>
+  <div class="service-detail-body"><div class="service-detail-wrap">
+    <h2>Content That Works While You Sleep</h2>
+    <p>A well-written blog post can bring in leads for years after it's published. We create content that ranks on Google, answers your customers' questions, and builds trust — turning your website into a 24/7 lead generation machine.</p>
+    <div class="blog-highlight">📝 Businesses that blog consistently get 67% more leads per month than those that don't. We create the content strategy and write every piece — you just publish it.</div>
+    <h2>Our Content Services</h2>
+    <ul>
+      <li>SEO-optimised blog posts and articles (1,500–3,000 words)</li>
+      <li>Website copy (home, about, services, landing pages)</li>
+      <li>Video scripts for Reels and YouTube</li>
+      <li>Social media captions and ad copy</li>
+      <li>Case studies and testimonial write-ups</li>
+      <li>Monthly content calendar strategy</li>
+    </ul>
+    <div style="margin-top:32px"><button class="btn-primary btn-large" data-page="contact">Start Content Marketing →</button></div>
+  </div></div>
+</div>
+
+<div class="service-detail-page" id="sd-analytics">
+  <div class="service-detail-hero"><div class="service-detail-wrap"><div class="back-btn" onclick="goBackToServices()">← Back to Services</div><div class="section-label">Service Deep Dive</div><h1>Analytics & Reporting</h1><p style="color:var(--text-muted);font-size:1rem;margin-top:12px;max-width:600px;line-height:1.7">Clear, jargon-free reports that show exactly where your money is going and what results it's generating.</p></div></div>
+  <div class="service-detail-body"><div class="service-detail-wrap">
+    <h2>Data-Driven Decisions, Not Guesswork</h2>
+    <p>Most agencies send confusing PDF reports full of vanity metrics. We believe you deserve to know exactly what's happening — in plain language. Our reporting system tracks the metrics that actually matter to your business growth.</p>
+    <div class="blog-highlight">📊 We set up custom Google Analytics 4, Meta Pixel, and conversion tracking so every lead and sale is attributed to the right channel — giving you full transparency on your ROI.</div>
+    <h2>What Our Reports Cover</h2>
+    <ul>
+      <li>Website traffic, sources, and conversion rates</li>
+      <li>Ad spend vs. leads and revenue generated</li>
+      <li>Social media reach, engagement, and follower growth</li>
+      <li>SEO keyword rankings and organic traffic trends</li>
+      <li>Email and WhatsApp open/click/reply rates</li>
+      <li>Monthly strategy recommendations based on data</li>
+    </ul>
+    <div style="margin-top:32px"><button class="btn-primary btn-large" data-page="contact">Get My Custom Dashboard →</button></div>
+  </div></div>
+</div>
+
+
+<!-- ============================================================
+     OUR WORK PAGE
+     ============================================================ -->
+<div class="page" id="work">
+  <div class="page-hero">
+    <div class="section-label" style="justify-content:center">Portfolio</div>
+    <h1>Our Work</h1>
+    <p>Websites, posters, reels, logos, social campaigns, and SEO results — all delivered for real clients.</p>
+  </div>
+  <section>
+    <div class="portfolio-filters">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="website">🌐 Websites</button>
+      <button class="filter-btn" data-filter="poster">🎨 Posters</button>
+      <button class="filter-btn" data-filter="reel">🎬 Reels</button>
+      <button class="filter-btn" data-filter="social">📱 Social Posts</button>
+      <button class="filter-btn" data-filter="logo">✏️ Logos</button>
+      <button class="filter-btn" data-filter="seo">🔍 SEO</button>
+    </div>
+    <div class="portfolio-grid">
+
+
+  <!-- Sangeetha Holidays -->
+  <div class="portfolio-item fade-up" data-cat="website">
+    <div class="portfolio-thumb">
+      <img src="https://image.thum.io/get/width/600/https://sangeethaholidays.com" alt="Sangeetha Holidays Website">
+      <span class="portfolio-tag tag-website">Website</span>
+    </div>
+    <div class="portfolio-info">
+      <h3>Sangeetha Holidays</h3>
+      <p>Travel and tourism website offering customized holiday packages and bookings.</p>
+      <a class="portfolio-link" href="https://sangeethaholidays.com" target="_blank">
+        Visit Website →
+      </a>
+    </div>
+  </div>
+
+  <!-- Agarwal Event Planners -->
+  <div class="portfolio-item fade-up" data-cat="website">
+    <div class="portfolio-thumb">
+      <img src="https://image.thum.io/get/width/600/https://agarwaleventplanners.com" alt="Agarwal Event Planners Website">
+      <span class="portfolio-tag tag-website">Website</span>
+    </div>
+    <div class="portfolio-info">
+      <h3>Agarwal Event Planners</h3>
+      <p>Professional event planning services for weddings, corporate events, and celebrations.</p>
+      <a class="portfolio-link" href="https://agarwaleventplanners.com" target="_blank">
+        Visit Website →
+      </a>
+    </div>
+  </div>
+
+
+
+</div>
+  </section>
+  <section class="cta-section">
+    <h2>Want results like these for your business?</h2>
+    <p>Let's discuss your project and build something amazing together.</p>
+    <div class="cta-btns"><button class="btn-white" data-page="contact">Start Your Project →</button></div>
+  </section>
+</div><!-- /work -->
+
+
+<!-- ============================================================
+     BLOGS PAGE
+     ============================================================ -->
+<div class="page" id="blogs">
+  <div class="page-hero">
+    <div class="section-label" style="justify-content:center">Insights</div>
+    <h1>Digital Marketing Blog</h1>
+    <p>Tips, strategies, and insights to help your business thrive in the digital world.</p>
+  </div>
+  <section>
+    <div class="blogs-grid">
+      <div class="blog-card fade-up" data-blog="meta-ads">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#eff6ff,#bfdbfe)"><span>📣</span><span class="blog-cat">Meta Ads</span></div>
+        <div class="blog-body"><div class="blog-meta">April 2, 2025 · 7 min read</div><h3>5 Meta Ads Mistakes That Are Burning Your Budget in 2025</h3><p>Most businesses waste 40% of their ad spend on these common but avoidable errors. Here's how to fix them fast.</p><span class="blog-read-more">Read More →</span></div>
+      </div>
+      <div class="blog-card fade-up" data-blog="local-seo">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0)"><span>🔍</span><span class="blog-cat">SEO</span></div>
+        <div class="blog-body"><div class="blog-meta">March 28, 2025 · 9 min read</div><h3>Local SEO in 2025: How to Rank #1 on Google Maps for Your Business</h3><p>The definitive guide to dominating local search results and bringing more customers through your door.</p><span class="blog-read-more">Read More →</span></div>
+      </div>
+      <div class="blog-card fade-up" data-blog="reels-growth">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#faf5ff,#e9d5ff)"><span>🎬</span><span class="blog-cat">Content</span></div>
+        <div class="blog-body"><div class="blog-meta">March 20, 2025 · 6 min read</div><h3>Why Instagram Reels Are the #1 Growth Tool for Small Businesses in India</h3><p>Real data from our clients shows reels outperform every other format for reach and lead generation.</p><span class="blog-read-more">Read More →</span></div>
+      </div>
+      <div class="blog-card fade-up" data-blog="strategy-guide">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#fff7ed,#fed7aa)"><span>📊</span><span class="blog-cat">Strategy</span></div>
+        <div class="blog-body"><div class="blog-meta">March 14, 2025 · 8 min read</div><h3>How to Build a Digital Marketing Strategy From Scratch (Step-by-Step)</h3><p>A practical framework any business can follow to create and execute a winning digital marketing plan.</p><span class="blog-read-more">Read More →</span></div>
+      </div>
+      <div class="blog-card fade-up" data-blog="website-mistakes">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#f0f9ff,#bae6fd)"><span>🌐</span><span class="blog-cat">Website</span></div>
+        <div class="blog-body"><div class="blog-meta">March 7, 2025 · 5 min read</div><h3>10 Website Mistakes That Are Killing Your Conversions (And How to Fix Them)</h3><p>Your website might be losing you leads every day. Here's a simple audit checklist to fix it.</p><span class="blog-read-more">Read More →</span></div>
+      </div>
+      <div class="blog-card fade-up" data-blog="whatsapp-marketing">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#f0fdf4,#bbf7d0)"><span>✉️</span><span class="blog-cat">WhatsApp</span></div>
+        <div class="blog-body"><div class="blog-meta">Feb 28, 2025 · 6 min read</div><h3>WhatsApp Marketing for Indian Businesses: A Complete Beginner's Guide</h3><p>How to use WhatsApp Business API to automate follow-ups and close more sales without lifting a finger.</p><span class="blog-read-more">Read More →</span></div>
       </div>
     </div>
   </section>
+</div><!-- /blogs -->
 
-  <!-- ═══════════ FOOTER ═══════════ -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <div class="nav-logo">
-          <div class="logo-mark">A</div>
+
+<!-- BLOG DETAIL PAGES -->
+<div class="blog-detail-page" id="bd-meta-ads">
+  <div class="blog-detail-hero"><div class="blog-detail-hero-inner"><div class="back-btn" onclick="goBackToBlogs()">← Back to Blogs</div><span class="blog-cat" style="position:static;display:inline-block;margin-bottom:14px">Meta Ads</span><h1>5 Meta Ads Mistakes That Are Burning Your Budget in 2025</h1><div style="color:var(--text-muted);font-size:.9rem;margin-top:14px;display:flex;gap:20px;flex-wrap:wrap"><span>📅 April 2, 2025</span><span>⏱ 7 min read</span><span>✍️ Arunachala DigiWorld Team</span></div></div></div>
+  <div class="blog-detail-body"><div class="blog-detail-wrap">
+    <p>If you're running Meta Ads (Facebook and Instagram) for your business and not seeing results, you're probably making one or more of these 5 critical mistakes. The good news? All of them are fixable — once you know what to look for.</p>
+    <h2>Mistake #1: Targeting Too Broadly (or Too Narrowly)</h2>
+    <p>Many businesses either target "everyone in India aged 18-65" or they over-restrict their audience to a tiny niche. Both approaches waste money. The sweet spot is a well-defined audience of 500,000 to 2 million people based on real customer data.</p>
+    <div class="blog-highlight">💡 Use Meta's Lookalike Audience feature by uploading your existing customer phone numbers. Meta will find people who behave similarly — these convert 3x better than cold interest targeting.</div>
+    <h2>Mistake #2: Using Only One Ad Creative</h2>
+    <p>Most businesses run the same image ad for months. Consumer attention fades fast — especially on social media. You need to test at least 3–5 different creatives per campaign simultaneously and rotate them every 2–3 weeks based on performance data.</p>
+    <h2>Mistake #3: Sending Ads to Your Homepage</h2>
+    <p>Your homepage is designed for general visitors. Ad traffic is warm — people who clicked because they're interested. Send them to a dedicated landing page with one clear offer, one call-to-action, and no distractions. This alone can double your conversion rate.</p>
+    <h2>Mistake #4: Stopping Ads Too Early</h2>
+    <p>Meta's algorithm needs 50 conversions per week to properly optimise your campaign. If you're turning off ads after 3 days because "they're not working," you're starving the algorithm of the data it needs to improve. Give campaigns at least 7–14 days before making major changes.</p>
+    <h2>Mistake #5: Not Retargeting Warm Audiences</h2>
+    <p>People who visited your website, watched 50% of your video, or engaged with your Instagram page are 10x more likely to convert than cold audiences. Yet most businesses ignore retargeting entirely. Set up a retargeting campaign for everyone who's shown interest in the last 30 days.</p>
+    <div class="blog-highlight">🚀 At Arunachala DigiWorld, we helped a local salon cut their cost-per-lead by 62% in just 6 weeks by fixing these exact mistakes. The budget didn't change — the strategy did.</div>
+    <div style="margin-top:36px"><button class="btn-primary btn-large" data-page="contact">Fix My Meta Ads →</button></div>
+  </div></div>
+</div>
+
+<div class="blog-detail-page" id="bd-local-seo">
+  <div class="blog-detail-hero"><div class="blog-detail-hero-inner"><div class="back-btn" onclick="goBackToBlogs()">← Back to Blogs</div><span class="blog-cat" style="position:static;display:inline-block;margin-bottom:14px">SEO</span><h1>Local SEO in 2025: How to Rank #1 on Google Maps for Your Business</h1><div style="color:var(--text-muted);font-size:.9rem;margin-top:14px;display:flex;gap:20px;flex-wrap:wrap"><span>📅 March 28, 2025</span><span>⏱ 9 min read</span></div></div></div>
+  <div class="blog-detail-body"><div class="blog-detail-wrap">
+    <p>When someone in Hyderabad searches for "best dentist near me" or "AC repair Banjara Hills," Google shows a map with 3 local businesses at the top. These are called the "Local Pack" — and being in it can transform your business. Here's how to get there.</p>
+    <h2>Step 1: Fully Optimise Your Google Business Profile</h2>
+    <p>Most businesses claim their Google Business Profile and then forget about it. That's a mistake. Your GBP is the single most important factor for local rankings. Make sure every field is filled out: business name, categories, description, hours, photos (at least 20), services, and posts.</p>
+    <div class="blog-highlight">💡 Businesses with complete Google Business Profiles receive 7x more clicks than those with incomplete listings. It takes 30 minutes and costs nothing.</div>
+    <h2>Step 2: Generate Google Reviews Consistently</h2>
+    <p>Reviews are one of the strongest local ranking signals. Ask every happy customer to leave a Google review immediately after their experience. Make it easy — send them a direct link via WhatsApp. Aim for 5+ new reviews per month.</p>
+    <h2>Step 3: Build Local Citations</h2>
+    <p>Citations are mentions of your business name, address, and phone number (NAP) on other websites — Justdial, Sulekha, IndiaMART, Yelp, and industry directories. Consistent NAP across 20–30 directories significantly boosts local authority.</p>
+    <h2>Step 4: Create Location-Specific Pages on Your Website</h2>
+    <p>If you serve multiple areas in Hyderabad, create individual pages targeting each: "AC Repair in Banjara Hills," "AC Repair in Jubilee Hills," etc. Each page should have unique content, local keywords, and a clear call-to-action.</p>
+    <div style="margin-top:36px"><button class="btn-primary btn-large" data-page="contact">Improve My Local SEO →</button></div>
+  </div></div>
+</div>
+
+<div class="blog-detail-page" id="bd-reels-growth">
+  <div class="blog-detail-hero"><div class="blog-detail-hero-inner"><div class="back-btn" onclick="goBackToBlogs()">← Back to Blogs</div><span class="blog-cat" style="position:static;display:inline-block;margin-bottom:14px">Content</span><h1>Why Instagram Reels Are the #1 Growth Tool for Small Businesses in India</h1><div style="color:var(--text-muted);font-size:.9rem;margin-top:14px;display:flex;gap:20px;flex-wrap:wrap"><span>📅 March 20, 2025</span><span>⏱ 6 min read</span></div></div></div>
+  <div class="blog-detail-body"><div class="blog-detail-wrap">
+    <p>If you're a small business owner and you're not using Instagram Reels, you're leaving thousands of free impressions — and leads — on the table every month. Here's why Reels are the most powerful free marketing tool available in India right now, and how to use them.</p>
+    <h2>The Algorithm Loves Reels</h2>
+    <p>Instagram's algorithm prioritises Reels above every other content format. A Reel from a brand-new account with zero followers can reach tens of thousands of people through the Explore page and Suggested content. No other format offers this organic reach potential.</p>
+    <div class="blog-highlight">📊 Our data shows Reels get an average of 3.8x more reach than static posts for the same account. One of our clients' Reels reached 2.3 lakh people — with ₹0 spent on promotion.</div>
+    <h2>What Types of Reels Work Best for Businesses?</h2>
+    <ul>
+      <li><strong>Before & After:</strong> Transformations work for salons, gyms, interior designers, and renovation businesses.</li>
+      <li><strong>Process Videos:</strong> Show how you make/deliver your product or service. Builds massive trust.</li>
+      <li><strong>Tips & Tricks:</strong> Quick, valuable advice positions you as an expert.</li>
+      <li><strong>Behind the Scenes:</strong> Humanises your brand and creates connection.</li>
+      <li><strong>Customer Stories:</strong> Nothing converts better than real testimonials on video.</li>
+    </ul>
+    <h2>The 3-Second Hook Rule</h2>
+    <p>You have 3 seconds to stop someone from scrolling. Your Reel must start with something surprising, emotional, or curiosity-inducing. A powerful hook is more important than expensive equipment or fancy editing.</p>
+    <div style="margin-top:36px"><button class="btn-primary btn-large" data-page="contact">Create My Reels →</button></div>
+  </div></div>
+</div>
+
+<div class="blog-detail-page" id="bd-strategy-guide">
+  <div class="blog-detail-hero"><div class="blog-detail-hero-inner"><div class="back-btn" onclick="goBackToBlogs()">← Back to Blogs</div><span class="blog-cat" style="position:static;display:inline-block;margin-bottom:14px">Strategy</span><h1>How to Build a Digital Marketing Strategy From Scratch</h1><div style="color:var(--text-muted);font-size:.9rem;margin-top:14px;display:flex;gap:20px;flex-wrap:wrap"><span>📅 March 14, 2025</span><span>⏱ 8 min read</span></div></div></div>
+  <div class="blog-detail-body"><div class="blog-detail-wrap">
+    <p>Most businesses jump into digital marketing by boosting a few posts or running an ad — and then wonder why it doesn't work. A real digital marketing strategy starts with clarity on who you're targeting, what you're offering, and how you'll measure success.</p>
+    <h2>Step 1: Define Your Ideal Customer</h2>
+    <p>Who is your best customer? What do they search for online? What problems do they have? What social platforms do they use? The more specifically you can answer these, the more effectively you can target them with your marketing.</p>
+    <h2>Step 2: Set Clear, Measurable Goals</h2>
+    <p>Vague goals like "get more customers" won't work. Be specific: "Generate 50 qualified leads per month at a cost of ₹200 per lead." Every campaign you run should have a clear KPI attached to it.</p>
+    <div class="blog-highlight">🎯 The SMART goal framework works perfectly for digital marketing: Specific, Measurable, Achievable, Relevant, Time-bound. Write your goals this way before spending a single rupee on ads.</div>
+    <h2>Step 3: Choose the Right Channels</h2>
+    <p>Not every business needs to be on every platform. A B2B software company should focus on LinkedIn and Google. A local restaurant should prioritise Instagram, Google Maps, and WhatsApp. A fashion brand should focus on Instagram Reels and Pinterest.</p>
+    <h2>Step 4: Create a Content Calendar</h2>
+    <p>Consistency is the #1 success factor in digital marketing. Plan your content 30 days in advance. Mix educational content (60%), promotional content (20%), and entertainment/behind-the-scenes (20%).</p>
+    <div style="margin-top:36px"><button class="btn-primary btn-large" data-page="contact">Build My Strategy →</button></div>
+  </div></div>
+</div>
+
+<div class="blog-detail-page" id="bd-website-mistakes">
+  <div class="blog-detail-hero"><div class="blog-detail-hero-inner"><div class="back-btn" onclick="goBackToBlogs()">← Back to Blogs</div><span class="blog-cat" style="position:static;display:inline-block;margin-bottom:14px">Website</span><h1>10 Website Mistakes That Are Killing Your Conversions</h1><div style="color:var(--text-muted);font-size:.9rem;margin-top:14px;display:flex;gap:20px;flex-wrap:wrap"><span>📅 March 7, 2025</span><span>⏱ 5 min read</span></div></div></div>
+  <div class="blog-detail-body"><div class="blog-detail-wrap">
+    <p>Your website gets traffic but no inquiries? Before spending more on ads, audit these 10 common mistakes that silently kill website conversions.</p>
+    <ol>
+      <li style="margin-bottom:14px"><strong>No clear headline:</strong> Visitors should know exactly what you do within 3 seconds of landing on your page.</li>
+      <li style="margin-bottom:14px"><strong>Slow loading speed:</strong> 53% of mobile users leave if a page takes more than 3 seconds to load. Use Google PageSpeed Insights to check yours.</li>
+      <li style="margin-bottom:14px"><strong>No mobile optimisation:</strong> 70%+ of Indian internet users are on mobile. If your site looks broken on phone, you're losing most of your visitors.</li>
+      <li style="margin-bottom:14px"><strong>Weak or buried call-to-action:</strong> Every page should have one clear CTA — "Call Now," "Book Free Consultation," or "Get a Quote."</li>
+      <li style="margin-bottom:14px"><strong>No social proof:</strong> No reviews, testimonials, or client logos? Visitors have no reason to trust you over a competitor.</li>
+      <li style="margin-bottom:14px"><strong>Confusing navigation:</strong> If people can't find what they need in 2 clicks, they leave.</li>
+      <li style="margin-bottom:14px"><strong>Stock photos everywhere:</strong> Real photos of your team, office, and work build dramatically more trust than generic stock images.</li>
+      <li style="margin-bottom:14px"><strong>No WhatsApp button:</strong> In India, customers expect to contact businesses via WhatsApp. A floating WhatsApp button can increase inquiries by 40%.</li>
+      <li style="margin-bottom:14px"><strong>Missing contact information:</strong> Your phone number and address should be visible on every page, especially the header and footer.</li>
+      <li style="margin-bottom:14px"><strong>Not connected to Google Analytics:</strong> If you don't measure it, you can't improve it. Install GA4 and track every action visitors take.</li>
+    </ol>
+    <div style="margin-top:36px"><button class="btn-primary btn-large" data-page="contact">Audit My Website →</button></div>
+  </div></div>
+</div>
+
+<div class="blog-detail-page" id="bd-whatsapp-marketing">
+  <div class="blog-detail-hero"><div class="blog-detail-hero-inner"><div class="back-btn" onclick="goBackToBlogs()">← Back to Blogs</div><span class="blog-cat" style="position:static;display:inline-block;margin-bottom:14px">WhatsApp</span><h1>WhatsApp Marketing for Indian Businesses: A Complete Beginner's Guide</h1><div style="color:var(--text-muted);font-size:.9rem;margin-top:14px;display:flex;gap:20px;flex-wrap:wrap"><span>📅 Feb 28, 2025</span><span>⏱ 6 min read</span></div></div></div>
+  <div class="blog-detail-body"><div class="blog-detail-wrap">
+    <p>With over 550 million users in India, WhatsApp is the most powerful marketing channel most businesses are completely underusing. Here's how to set up a proper WhatsApp marketing system.</p>
+    <h2>WhatsApp Business vs. WhatsApp Business API</h2>
+    <p>The free WhatsApp Business app is great for small businesses managing conversations manually. The WhatsApp Business API (available through providers like Wati, Interakt, or AiSensy) enables automation, bulk broadcasts, and integration with your CRM — it's ideal once you're handling 50+ conversations per month.</p>
+    <div class="blog-highlight">📱 WhatsApp messages have a 98% open rate compared to email's 20%. A broadcast to 1,000 contacts will be seen by 980 of them — typically within minutes.</div>
+    <h2>5 WhatsApp Automations Every Business Should Set Up</h2>
+    <ul>
+      <li><strong>Instant welcome message</strong> when someone contacts you for the first time</li>
+      <li><strong>Lead follow-up sequence</strong> for inquiries that didn't convert immediately</li>
+      <li><strong>Appointment reminder</strong> sent 24 hours and 1 hour before a booking</li>
+      <li><strong>Post-service review request</strong> sent 48 hours after a completed service</li>
+      <li><strong>Monthly offer broadcast</strong> to your existing customer database</li>
+    </ul>
+    <h2>Building Your WhatsApp Contact List</h2>
+    <p>The foundation of WhatsApp marketing is a clean contact list. Collect numbers from every customer interaction, add a WhatsApp opt-in to your website, and include your WhatsApp number on all marketing materials.</p>
+    <div style="margin-top:36px"><button class="btn-primary btn-large" data-page="contact">Set Up WhatsApp Marketing →</button></div>
+  </div></div>
+</div>
+
+
+<!-- ============================================================
+     WHY NEED US PAGE
+     ============================================================ -->
+<div class="page" id="why">
+  <div class="page-hero">
+    <div class="section-label" style="justify-content:center">Why Arunachala DigiWorld</div>
+    <h1>Why Your Business Needs Us</h1>
+    <p>We don't just run campaigns — we become your growth partner, fully invested in your success.</p>
+  </div>
+  <section>
+    <div class="why-grid">
+      <div class="why-visual fade-up">
+        <div class="why-diagram">
+          <div class="section-label">Our Growth Framework</div>
+          <div class="strategy-steps">
+            <div class="strategy-step"><div class="step-line"><div class="step-dot">1</div><div class="step-connector"></div></div><div class="step-content"><h4>Diagnose Your Current Situation</h4><p>We audit your online presence, ad accounts, website, and competitors to find gaps and opportunities.</p></div></div>
+            <div class="strategy-step"><div class="step-line"><div class="step-dot">2</div><div class="step-connector"></div></div><div class="step-content"><h4>Build a Custom Growth Roadmap</h4><p>We create a 90-day plan with clear milestones, KPIs, and budgets tailored to your business goals.</p></div></div>
+            <div class="strategy-step"><div class="step-line"><div class="step-dot">3</div><div class="step-connector"></div></div><div class="step-content"><h4>Execute Across All Channels</h4><p>Our team handles ads, content, SEO, and design while you focus on running your business.</p></div></div>
+            <div class="strategy-step"><div class="step-line"><div class="step-dot">4</div></div><div class="step-content"><h4>Track, Learn, and Compound</h4><p>We analyse results weekly and continuously improve — so your ROI gets better every month.</p></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="why-points">
+        <div class="why-point fade-up"><div class="why-icon orange">🎯</div><div class="why-text"><h4>Results-Obsessed, Not Just Activity</h4><p>We measure success by your revenue and leads — not vanity metrics. Every rupee you spend is tracked and optimised for ROI.</p></div></div>
+        <div class="why-point fade-up"><div class="why-icon green">🤝</div><div class="why-text"><h4>Dedicated Team That Knows Your Business</h4><p>You're not a ticket number. You get a dedicated strategist who learns your industry, competitors, and customers deeply.</p></div></div>
+        <div class="why-point fade-up"><div class="why-icon purple">⚡</div><div class="why-text"><h4>Fast Execution Without Cutting Corners</h4><p>We move fast because the market doesn't wait. Campaigns go live in days, not weeks, without compromising quality.</p></div></div>
+        <div class="why-point fade-up"><div class="why-icon blue">📊</div><div class="why-text"><h4>Complete Transparency, Always</h4><p>Weekly reports, clear dashboards, and monthly strategy calls. You'll always know exactly what's happening with your money.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="compare-section">
+    <div class="section-header center">
+      <div class="section-label">Comparison</div>
+      <h2 class="section-title">Us vs. The Alternatives</h2>
+      <p class="section-sub">See why smart business owners choose Arunachala DigiWorld over the competition.</p>
+    </div>
+    <div class="compare-wrapper">
+      <table class="compare-table">
+        <thead><tr><th>Feature</th><th class="highlight-col">✦ Arunachala DigiWorld</th><th>Freelancer</th><th>Other Agencies</th><th>In-House Team</th></tr></thead>
+        <tbody>
+          <tr><td>Full-Service (Design + Ads + SEO)</td><td class="check highlight-col">✓</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Dedicated Account Manager</td><td class="check highlight-col">✓</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Weekly Performance Reports</td><td class="check highlight-col">✓</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td></tr>
+          <tr><td>ROI-Focused Campaigns</td><td class="check highlight-col">✓</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Affordable Pricing</td><td class="check highlight-col">✓</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Reel & Video Production</td><td class="check highlight-col">✓</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Local SEO & Google Maps</td><td class="check highlight-col">✓</td><td class="cross">✗</td><td class="check">✓</td><td class="cross">✗</td></tr>
+          <tr><td>No Long-Term Lock-In</td><td class="check highlight-col">✓</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section class="cta-section">
+    <h2>Still on the fence? Let's just talk.</h2>
+    <p>No commitment, no pressure. A free 30-minute call to see if we're the right fit for you.</p>
+    <div class="cta-btns"><button class="btn-white" data-page="contact">Book Free Strategy Call 📞</button></div>
+  </section>
+</div><!-- /why -->
+
+
+<!-- ============================================================
+     CONTACT PAGE
+     ============================================================ -->
+<div class="page" id="contact">
+  <div class="page-hero">
+    <div class="section-label" style="justify-content:center">Get In Touch</div>
+    <h1>Let's Grow Your Business</h1>
+    <p>Fill the form below and we’ll connect with you instantly.</p>
+  </div>
+
+  <section>
+    <div class="contact-grid">
+
+      <!-- LEFT SIDE -->
+      <div class="contact-info fade-up">
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div><h4>Our Office</h4><p>Hyderabad, Telangana, India</p></div>
+        </div>
+
+        <!-- Instagram Only -->
+        <div class="contact-item">
+          <div class="contact-icon">📸</div>
           <div>
-            <div class="logo-name">Arunachala</div>
-            <div class="logo-tag">Digi World</div>
+            <h4>Instagram</h4>
+            <p>
+              <a href="https://instagram.com/arunachaladigital" target="_blank"
+                style="color:#E1306C;text-decoration:none;font-weight:600">
+                @arunachaladigital
+              </a>
+            </p>
           </div>
         </div>
-        <p>Digital Solutions For Growing Businesses. Empowering brands with smart, affordable technology.</p>
-      </div>
-      <div class="footer-col">
-        <h5>Quick Links</h5>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h5>Services</h5>
-        <a href="services.html">Website Development</a>
-        <a href="services.html">Automation</a>
-        <a href="services.html">SEO &amp; Design</a>
-        <a href="services.html">AI/ML Projects</a>
-      </div>
-      <div class="footer-col">
-        <h5>Connect</h5>
-        <a href="https://www.instagram.com/arunachaladigital/" target="_blank" rel="noopener" class="insta-link">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          @arunachaladigitial
-        </a>
-      </div>
-    </div>
-    <div class="footer-bar container">
-      <p>© 2025 Arunachala Digi World. All rights reserved. Crafted with ❤ for digital excellence.</p>
-      <div class="footer-bar-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-      </div>
-    </div>
-  </footer>
 
-  <script src="main.js"></script>
+        <div class="contact-item">
+          <div class="contact-icon">⏰</div>
+          <div><h4>Working Hours</h4><p>Mon–Sat: 9:00 AM – 7:00 PM IST</p></div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT SIDE FORM -->
+      <div class="contact-form fade-up">
+        <h3>Send Us a Message</h3>
+
+        <form id="contactForm">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Name *</label>
+              <input type="text" name="name" required>
+            </div>
+
+            <div class="form-group">
+              <label>Mobile *</label>
+              <input type="tel" name="mobile" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email">
+          </div>
+
+          <div class="form-group">
+            <label>Business Name</label>
+            <input type="text" name="brand">
+          </div>
+
+          <div class="form-group">
+            <label>Service</label>
+            <select name="service">
+              <option>Website</option>
+              <option>SEO</option>
+              <option>Ads</option>
+              <option>Design</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%">
+            Submit & Connect 🚀
+          </button>
+
+        </form>
+
+        <!-- SUCCESS -->
+        <div id="contactSuccess" style="display:none;margin-top:15px;color:green;text-align:center;">
+          ✅ Submitted successfully! We will get back to you within 24 hours.
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo" data-page="home" style="margin-bottom:2px">
+        <div class="logo-icon">AD</div>
+        <div class="footer-logo-text">Arunachala <span>DigiWorld</span></div>
+      </div>
+      <p>Your trusted digital marketing partner in Hyderabad. We help businesses capture leads, build brands, and scale revenue through smart, data-driven strategies.</p>
+      
+    </div>
+    <div class="footer-col">
+      <h5>Pages</h5>
+      <ul>
+        <li><a data-page="home">Home</a></li>
+        <li><a data-page="services">Services</a></li>
+        <li><a data-page="work">Our Work</a></li>
+        <li><a data-page="blogs">Blogs</a></li>
+        <li><a data-page="why">Why Need Us</a></li>
+        <li><a data-page="contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a>SEO Optimisation</a></li>
+        <li><a>Paid Ads</a></li>
+        <li><a>Social Media</a></li>
+        <li><a>Website Design</a></li>
+        <li><a>Reel Production</a></li>
+        <li><a>Branding</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a>Hyderabad, Telangana</a></li>
+        <li><a>Mon–Sat 9AM–7PM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Arunachala DigiWorld. All rights reserved.</p>
+    
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>
